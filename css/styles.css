@@ -370,8 +370,19 @@ button {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 24px;
-  list-style: none;
+  gap: 22px;
+  list-style: none !important;
+  flex-wrap: nowrap !important;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  list-style: none !important;
+  list-style-type: none !important;
+  white-space: nowrap !important;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-link {
@@ -381,6 +392,8 @@ button {
   padding: 8px 4px;
   position: relative;
   transition: color var(--transition-fast);
+  white-space: nowrap !important;
+  display: inline-block;
 }
 
 .nav-link::after {
@@ -691,10 +704,6 @@ button {
   }
   .nav-wrapper {
     height: 66px;
-  }
-  .mobile-drawer {
-    top: 66px !important;
-    height: calc(100dvh - 66px) !important;
   }
 }
 

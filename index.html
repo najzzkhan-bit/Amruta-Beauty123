@@ -24,27 +24,12 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <script>
-    // Strict mobile gesture / pinch-to-zoom prevention (iOS 10+ and Android)
-    document.addEventListener('gesturestart', function(e) { e.preventDefault(); }, { passive: false });
-    document.addEventListener('gesturechange', function(e) { e.preventDefault(); }, { passive: false });
-    document.addEventListener('gestureend', function(e) { e.preventDefault(); }, { passive: false });
-    document.addEventListener('touchstart', function(e) {
-      if (e.touches && e.touches.length > 1) {
-        e.preventDefault();
-      }
-    }, { passive: false });
-    var lastTouchEnd = 0;
-    document.addEventListener('touchend', function(e) {
-      var now = Date.now();
-      if (now - lastTouchEnd <= 300) {
-        e.preventDefault();
-      }
-      lastTouchEnd = now;
-    }, { passive: false });
-
     // Global Mobile Drawer Controller
     window.__toggleAmrutaMobileMenu = function(e) {
-      if (e && e.preventDefault) { e.preventDefault(); e.stopPropagation(); }
+      if (e) {
+        if (typeof e.preventDefault === 'function') e.preventDefault();
+        if (typeof e.stopPropagation === 'function') e.stopPropagation();
+      }
       var drawer = document.getElementById('mobileDrawer');
       var toggle = document.getElementById('mobileToggle');
       var backdrop = document.getElementById('mobileDrawerBackdrop');
@@ -52,14 +37,28 @@
       var isOpen = drawer.classList.contains('open');
       if (isOpen) {
         drawer.classList.remove('open');
-        if (toggle) { toggle.classList.remove('active'); toggle.setAttribute('aria-expanded', 'false'); }
-        if (backdrop) backdrop.classList.remove('active');
+        drawer.style.display = 'none';
+        if (toggle) {
+          toggle.classList.remove('active');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+        if (backdrop) {
+          backdrop.classList.remove('active');
+          backdrop.style.display = 'none';
+        }
         document.body.classList.remove('menu-open');
         document.body.style.overflow = '';
       } else {
         drawer.classList.add('open');
-        if (toggle) { toggle.classList.add('active'); toggle.setAttribute('aria-expanded', 'true'); }
-        if (backdrop) backdrop.classList.add('active');
+        drawer.style.display = 'flex';
+        if (toggle) {
+          toggle.classList.add('active');
+          toggle.setAttribute('aria-expanded', 'true');
+        }
+        if (backdrop) {
+          backdrop.classList.add('active');
+          backdrop.style.display = 'block';
+        }
         document.body.classList.add('menu-open');
         document.body.style.overflow = 'hidden';
       }
@@ -138,10 +137,6 @@
 
         <!-- Actions -->
         <div class="nav-actions">
-          <button type="button" class="btn btn-outline-gold btn-sm btn-admin-nav" onclick="window.__openAdminModal(event)" style="display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; font-weight: 600;" title="Owner / Admin Dashboard">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>Admin</span>
-          </button>
           <a href="#booking" class="btn btn-primary btn-sm btn-book-nav">Book an Appointment</a>
           <!-- Mobile Menu Hamburger -->
           <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="window.__toggleAmrutaMobileMenu(event)">
@@ -1151,11 +1146,16 @@
 
       <!-- Bottom Bar -->
       <div class="footer-bottom-bar">
-        <p>&copy; 2026 Amruta Boarde Makeup Artist. All Rights Reserved.</p>
+        <div class="footer-bottom-left" style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+          <a href="#" id="btnOpenAdmin" class="btn btn-outline-gold btn-sm" onclick="window.__openAdminModal(event)" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; font-size: 0.82rem; font-weight: 600; border-radius: 9999px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Admin / Owner Portal</span>
+          </a>
+          <p style="margin: 0;">&copy; 2026 Amruta Boarde Makeup Artist. All Rights Reserved.</p>
+        </div>
         <div class="footer-bottom-links">
           <a href="#" id="linkPrivacyPolicy">Privacy Policy</a>
           <a href="#" id="linkTerms">Terms &amp; Conditions</a>
-          <a href="#" id="btnOpenAdmin" onclick="window.__openAdminModal(event)" style="color: var(--c-gold-light); font-weight: 600;">Owner Login</a>
         </div>
       </div>
     </div>
