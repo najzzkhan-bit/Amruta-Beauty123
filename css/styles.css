@@ -476,26 +476,30 @@ button {
   .nav-actions .btn-book-nav {
     display: none;
   }
+  .nav-actions .btn-admin-nav {
+    display: none;
+  }
   .nav-wrapper {
     height: 72px;
   }
   .mobile-drawer {
     display: none;
     position: fixed !important;
-    top: 72px !important;
+    inset: 0 !important;
+    top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     width: 100vw !important;
     max-width: 100vw !important;
-    height: calc(100dvh - 72px) !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
     background: #231713 !important;
-    border-top: 1px solid var(--c-border);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.95);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.98);
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch;
-    padding: 24px 20px 40px !important;
-    z-index: 99999 !important;
+    padding: 0 20px 40px !important;
+    z-index: 999999 !important;
   }
   .mobile-drawer.open {
     display: flex !important;
@@ -505,15 +509,72 @@ button {
     pointer-events: auto !important;
     transform: none !important;
   }
+  .mobile-drawer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--c-border);
+    margin-bottom: 18px;
+    position: sticky;
+    top: 0;
+    background: #231713;
+    z-index: 10;
+  }
+  .mobile-drawer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .mobile-drawer-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--c-gold);
+    object-fit: cover;
+  }
+  .mobile-drawer-brand-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-drawer-title {
+    font-family: var(--font-serif);
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: var(--c-text-primary);
+    line-height: 1.2;
+  }
+  .mobile-drawer-sub {
+    font-size: 0.72rem;
+    color: var(--c-gold);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .mobile-drawer-close {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--c-border);
+    color: var(--c-gold-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+  .mobile-drawer-close:active {
+    background: var(--c-gold);
+    color: #1F1512;
+  }
   .mobile-drawer-backdrop {
     display: none;
     position: fixed !important;
     inset: 0 !important;
-    top: 0 !important;
     background: rgba(15, 10, 8, 0.8) !important;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
-    z-index: 99998 !important;
+    z-index: 999998 !important;
   }
   .mobile-drawer-backdrop.active {
     display: block !important;
@@ -528,12 +589,13 @@ button {
     gap: 8px;
   }
   .mobile-nav-link {
-    font-size: 1.25rem;
+    font-size: 1.18rem;
     font-family: var(--font-serif);
     font-weight: 600;
     color: var(--c-text-primary);
-    display: block;
-    padding: 14px 12px;
+    display: flex;
+    align-items: center;
+    padding: 13px 12px;
     border-radius: var(--radius-sm);
     border-bottom: 1px solid rgba(200, 165, 107, 0.18);
     transition: background var(--transition-fast), color var(--transition-fast);
@@ -543,8 +605,15 @@ button {
     background: rgba(200, 165, 107, 0.15);
     padding-left: 16px;
   }
+  .mobile-nav-admin {
+    border: 1px solid rgba(200, 165, 107, 0.4) !important;
+    border-radius: 12px !important;
+    background: rgba(200, 165, 107, 0.08) !important;
+    color: var(--c-gold-light) !important;
+    margin-top: 6px;
+  }
   .mobile-drawer-cta {
-    margin-top: 26px;
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -2316,6 +2385,8 @@ button {
   padding: 24px 26px;
   margin-top: 24px;
   box-shadow: var(--shadow-sm);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .schedule-header {
@@ -2325,6 +2396,8 @@ button {
   margin-bottom: 16px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--c-border-subtle);
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .schedule-title {
@@ -2364,24 +2437,28 @@ button {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
 }
 
 .schedule-slot-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding: 10px 14px;
   border-radius: 10px;
   background: var(--c-bg-secondary);
   border: 1px solid var(--c-border-subtle);
   font-size: 0.88rem;
   transition: all var(--transition-fast);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .schedule-slot-item:hover {
   background: var(--c-bg-card-hover);
   border-color: var(--c-gold);
-  transform: translateX(4px);
 }
 
 .schedule-slot-name {
@@ -2390,17 +2467,51 @@ button {
   gap: 8px;
   font-weight: 600;
   color: var(--c-text-primary);
+  flex: 1 1 auto;
 }
 
 .schedule-slot-time {
   font-weight: 700;
-  color: var(--c-gold);
+  color: var(--c-gold-light);
   font-size: 0.85rem;
+  background: rgba(200, 165, 107, 0.15);
+  border: 1px solid rgba(200, 165, 107, 0.25);
+  padding: 4px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
 }
 
 @media (max-width: 991px) {
   .address-grid {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .address-card {
+    padding: 24px 20px !important;
+  }
+  .studio-schedule-card {
+    padding: 16px 14px !important;
+    margin-top: 18px !important;
+  }
+  .schedule-slot-item {
+    padding: 10px 12px !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .address-card {
+    padding: 20px 14px !important;
+  }
+  .studio-schedule-card {
+    padding: 14px 12px !important;
+  }
+  .schedule-slot-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .schedule-slot-time {
+    align-self: flex-start;
   }
 }
 
@@ -2625,17 +2736,18 @@ dialog {
   color: var(--c-text-primary);
   max-width: 680px;
   width: 92%;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.85);
   margin: auto;
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 1000000 !important;
 }
 
 dialog::backdrop {
-  background-color: rgba(15, 10, 8, 0.82);
+  background-color: rgba(15, 10, 8, 0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  z-index: 999999 !important;
 }
 
 .modal-inner {
@@ -2643,6 +2755,19 @@ dialog::backdrop {
   position: relative;
   max-height: 88vh;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 600px) {
+  dialog {
+    width: 95% !important;
+    max-height: 94dvh !important;
+    border-radius: 18px !important;
+  }
+  .modal-inner {
+    padding: 24px 16px !important;
+    max-height: 94dvh !important;
+  }
 }
 
 .modal-close-btn {

@@ -687,9 +687,14 @@ Message: ${message}`);
   const adminSearchInput = document.getElementById('adminSearchInput');
 
   let adminAuthorized = false;
+  window.__adminAuthorized = false;
+  window.__syncAndRenderDashboard = syncAndRenderDashboard;
 
-  btnOpenAdmin?.addEventListener('click', (e) => {
-    e.preventDefault();
+  function triggerAdminOpen(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    if (window.__toggleAmrutaMobileMenu && document.getElementById('mobileDrawer')?.classList.contains('open')) {
+      window.__toggleAmrutaMobileMenu();
+    }
     if (adminAuthorized) {
       syncAndRenderDashboard();
       adminModal?.showModal();
@@ -698,12 +703,18 @@ Message: ${message}`);
       if (adminPinError) adminPinError.style.display = 'none';
       adminPinModal?.showModal();
     }
+  }
+
+  btnOpenAdmin?.addEventListener('click', triggerAdminOpen);
+  document.querySelectorAll('.btn-admin-nav, .btn-open-admin, .mobile-nav-admin').forEach(btn => {
+    btn.addEventListener('click', triggerAdminOpen);
   });
 
   adminPinForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (adminPinInput.value === config.adminPasscode) {
       adminAuthorized = true;
+      window.__adminAuthorized = true;
       adminPinModal?.close();
       syncAndRenderDashboard();
       adminModal?.showModal();
