@@ -1,0 +1,584 @@
+# COMPLETE WEBSITE BUILD PROMPT — AMRUTA BOARDE MAKEUP ARTIST
+Make an amazing website, with beautiful color scheme, images, etc. Give me the website in HTML format in a zip file,
+High
+Build a complete, dynamic, premium-quality website for Amruta Boarde, a professional bridal makeup artist and hairstylist.
+
+The website must look luxurious, work smoothly on desktop and mobile, showcase the owner's photographs and makeup portfolio, display services and prices, and support appointment requests through WhatsApp.
+
+Do not create only a visual mockup. Build the actual website, database schema, backend integrations, and deployment-ready project.
+
+**Important:** This website does not require an AI voice agent, AI receptionist, voice chatbot, or telephone automation. Do not add these features or display buttons referring to them.
+
+# 1. BRAND AND BUSINESS DETAILS
+
+**Brand name:** Amruta Boarde Makeup Artist
+
+**Professional designation:** Bridal Makeup Artist | Hairstylist
+
+**Experience:** 12 years
+
+**Contact number:** +91 7387268299
+
+**Instagram:** https://www.instagram.com/makeup_byamruta/
+
+**Service coverage:** India and international destinations.
+
+The website must showcase Amruta as an experienced professional makeup artist specializing in bridal makeup, hairstyling, beauty services, and special-event makeup.
+
+Use the correct business name consistently throughout the website. Do not display the placeholder word "Titile" anywhere on the finished website.
+
+# 2. WEBSITE DESIGN AND VISUAL EXPERIENCE
+
+Create a premium international beauty brand experience.
+
+Design requirements:
+- Luxury bridal photography and professional makeup imagery.
+- Elegant typography and sophisticated spacing.
+- Premium ivory, champagne, beige, soft blush, and tasteful gold accents.
+- High-quality animations and smooth transitions.
+- Beautiful image galleries and before-and-after portfolio layouts.
+- Premium service cards with clearly displayed prices.
+- Elegant buttons, hover effects, and subtle micro-interactions.
+- Responsive layouts for desktop, tablet, and mobile.
+- Fast loading, SEO-friendly pages, and accessible controls.
+- Floating WhatsApp and contact options.
+- Prominent "Book an Appointment" and "Contact Amruta on WhatsApp" buttons.
+- Consistent colours, typography, image treatment, and spacing throughout the website.
+
+Avoid a generic template appearance. The website should feel like a premium international makeup artist's real business.
+
+Do not use random stock images when the provided photographs are suitable. Prioritize the actual owner photographs, bridal pictures, and before-and-after images available in the project folder.
+
+# 3. OWNER PHOTOGRAPH AND IMAGE ASSETS
+
+I have placed a separate photograph of the owner in the project folder, along with other makeup photographs and before-and-after images.
+
+Before building the website, inspect the available project assets and identify the different image types.
+
+**Owner photograph instructions:**
+- Use the owner's photograph separately in the About Amruta section.
+- Use a suitable owner photograph in the homepage introduction or profile section if appropriate.
+- Keep the owner photograph distinct from the bridal portfolio and before-and-after transformations.
+- Do not mix the owner portrait into a before-and-after comparison.
+- Do not substitute the owner's photograph with an unrelated model.
+- Do not modify the owner's facial identity or create a different person.
+- Crop and resize images professionally without distorting them.
+- Preserve image quality and optimize images for fast page loading.
+
+**Bridal gallery instructions:**
+- Use the provided bridal photographs in the Bridal Gallery.
+- Include the supplied before-and-after transformation images as separate, clearly labelled comparisons.
+- Keep each before-and-after pair together.
+- Do not invent transformations or combine unrelated photographs.
+- Make the gallery responsive and easy to browse on mobile.
+- Add image alt text and suitable captions where appropriate.
+
+Organize images into logical categories, such as:
+- Owner Profile
+- Bridal Makeup
+- Before and After
+- Party and Event Makeup
+- Hairstyling
+- Mehndi
+
+If the project folder contains multiple owner photographs, choose an appropriate one for the About section and use other suitable images only where they add value.
+
+# 4. WEBSITE NAVIGATION
+
+Use the following navigation:
+
+**Home · Gallery · Portfolio · Makeup Space · Address · Packages · Contact**
+
+Navigation requirements:
+- Home: Introduce Amruta and highlight the services.
+- Gallery: Showcase bridal photographs and transformations.
+- Portfolio: Present makeup, hairstyling, and event-work examples.
+- Makeup Space: About Amruta and the studio experience.
+- Address: Display the actual business location and map once the address is configured.
+- Packages: Show services and prices.
+- Contact: Provide telephone, WhatsApp, Instagram, and the configured Facebook link.
+
+Use a clean desktop navigation bar and a mobile-friendly menu.
+
+All navigation items must lead to actual pages or sections. Do not create empty or non-functional links.
+
+# 5. REQUIRED WEBSITE PAGES
+
+Create these pages and sections:
+
+1. Home page.
+2. Bridal Makeup.
+3. Makeup and Beauty Services.
+4. Hairstyling Services.
+5. Portfolio and Gallery.
+6. About Amruta.
+7. Bridal Before-and-After Gallery.
+8. Appointment Request and Booking.
+9. Makeup Space.
+10. Address and Map.
+11. Contact Us.
+12. Privacy Policy.
+13. Terms and Conditions.
+14. Admin Dashboard for enquiries, appointment requests, and leads.
+
+The homepage must include:
+- A premium hero section.
+- A strong bridal makeup headline.
+- A short introduction to Amruta.
+- Her actual photograph in the appropriate profile area.
+- Featured services and packages.
+- A preview of the bridal portfolio.
+- Before-and-after transformations.
+- Customer testimonials if genuine testimonials are provided.
+- Appointment booking calls to action.
+- WhatsApp contact options.
+- Instagram and Facebook links when configured.
+
+Do not invent customer testimonials, qualifications, awards, business addresses, or client results.
+
+# 6. HOMEPAGE CONTENT
+
+Create a polished hero section using the actual makeup portfolio.
+
+Suggested headline:
+
+**Your Beauty, Your Special Moment, Our Artistry.**
+
+Suggested supporting text:
+
+"Discover professional bridal makeup, hairstyling, and beauty services by Amruta Boarde. With 12 years of experience, every look is designed to complement your personality and make your special moments memorable."
+
+Primary button: **Book an Appointment**
+
+Secondary button: **Explore Bridal Gallery**
+
+The design should immediately communicate trust, professional artistry, and a personalized beauty experience.
+
+# 7. ABOUT AMRUTA SECTION
+
+Use the following content, replacing the placeholder word "Titile" with the correct brand name and adapting the sentences to fit Amruta's business.
+
+**Section headline:**
+
+More Than a Parlour — Your Personal Space to Relax and Glow.
+
+**Website copy:**
+
+"Step into a thoughtfully designed beauty experience where you can relax, unwind, and enjoy a little time just for yourself.
+
+Whether you're preparing for your wedding, a special occasion, or simply want to pamper yourself, enjoy a personalized experience focused on your beauty and comfort.
+
+From bridal makeup and hairstyling to everyday beauty services, Amruta Boarde is here to help you feel confident and look your best.
+
+At Amruta Boarde Makeup Artist, you relax. We help you glow."
+
+Use the separate owner photograph alongside this content.
+
+Do not display the placeholder word "Titile" in any heading, paragraph, image label, page title, or metadata.
+
+# 8. BRIDAL, PARTY, AND EDITORIAL SERVICES
+
+Create visually appealing feature sections for the following service categories.
+
+**Bridal Makeup and Wedding Styling**
+
+Highlight bridal makeup and hairstyling, wedding preparations, makeup trials where offered, veil fitting where offered, and wedding-party styling.
+
+**Party and Event Artistry**
+
+Highlight event makeup, elegant hairstyling, special-occasion looks, and photographic touch-ups where available.
+
+**Editorial and Photoshoots**
+
+Highlight makeup and skin preparation for creative production and professional photoshoots.
+
+Use these descriptions as service-category content. Do not promise an unlisted service as a confirmed offering unless the owner approves it.
+
+# 9. SERVICES MENU AND PRICES
+
+Create a dedicated Packages and Services page with well-organized categories, readable price labels, and mobile-friendly service cards.
+
+Display prices in Indian rupees. Preserve the prices below exactly as provided.
+
+## A. Skincare and Facial Services
+
+| Service | Price |
+|---|---:|
+| Eyebrow | ₹30 |
+| Fruit Cleanup | ₹300 |
+| Upper Lips | ₹15 |
+| Fruit Facial | ₹500 |
+| Forehead | ₹15 |
+| Fruit Bleach | ₹150 |
+| D-Tan | ₹200 |
+| Face Wax | ₹200 |
+| Arms Bleach | ₹150 |
+| Arms D-Tan | ₹250 |
+| Raga Facial | ₹700 |
+| Aroma Facial | ₹500 |
+| Hand Polishing | ₹300 |
+
+## B. Waxing and Body Care
+
+| Service | Price |
+|---|---:|
+| Waxing | Contact for price |
+| Full Arms + Underarms | ₹150 |
+| Half Legs | ₹150 |
+| Full Legs | ₹300 |
+| Head Massage | ₹200 |
+| Full Body Massage | ₹1,000 |
+| Foot Massage | ₹150 |
+| Leg Polishing | ₹400 |
+| Full Body Polishing | ₹1,000 |
+
+The price for general waxing was not provided. Show "Contact for price" until the owner supplies the correct price. Do not invent a price.
+
+## C. Nail Care
+
+| Service | Price |
+|---|---:|
+| Manicure | ₹250 |
+| Pedicure | ₹350 |
+
+## D. Hair Services
+
+| Service | Price |
+|---|---:|
+| Hair Spa Matrix | ₹500 |
+| Hair Spa Keratin | ₹700 |
+| Hair Cutting | ₹350 |
+| Head Wash | ₹150 |
+| Root Touch Up | ₹500 |
+| Head Wash + Blow Dry | ₹250 |
+
+## E. Mehndi Services
+
+| Service | Price |
+|---|---:|
+| Arabic Mehndi | ₹250 |
+| Bridal Mehndi | ₹2,000 |
+
+### Services-menu presentation
+
+- Use category headings and premium service cards or tables.
+- Make service names and prices easy to read on mobile.
+- Include a WhatsApp booking button for each category.
+- Connect the main booking button to the booking form and WhatsApp.
+- Do not change the listed prices without approval.
+- Do not invent prices, service durations, package inclusions, or discounts.
+- Store service names and prices in Supabase where configured so an authorized administrator can update them without editing website code.
+
+# 10. APPOINTMENT BOOKING AND WHATSAPP INTEGRATION
+
+WhatsApp must be a primary contact and appointment-request channel.
+
+**Owner's WhatsApp number:** +91 7387268299
+
+**WhatsApp click-to-chat URL:** https://wa.me/917387268299
+
+Implement the following:
+
+### Website booking form
+
+Collect:
+- Customer name.
+- Customer phone number.
+- Requested service.
+- Preferred date.
+- Preferred time.
+- Additional requirements or message.
+
+Keep the form simple and mobile-friendly.
+
+### WhatsApp booking workflow
+
+When a customer submits the booking form:
+
+1. Validate the required information.
+2. Save the appointment request to Supabase if the backend is configured.
+3. Display a clear success or error message for the database operation.
+4. Provide a "Continue on WhatsApp" button that opens Amruta's WhatsApp chat.
+5. Prefill a WhatsApp message with the customer's booking details.
+6. Address the message to Amruta's number, +91 7387268299.
+7. Allow the customer to review the prefilled message and send it through WhatsApp.
+
+Use a message format similar to:
+
+"Hello Amruta, I would like to request an appointment.
+
+Name: [Customer Name]
+Service: [Selected Service]
+Preferred Date: [Preferred Date]
+Preferred Time: [Preferred Time]
+Contact Number: [Customer Phone]
+Additional Requirements: [Customer Message]
+
+Please confirm availability. Thank you."
+
+URL-encode the prefilled message correctly.
+
+**Important:** Opening a WhatsApp chat with a prefilled message does not automatically send the message. The customer must press Send in WhatsApp. Do not display "WhatsApp message sent" until the website has reliable confirmation of an actual send, which a normal click-to-chat link does not provide.
+
+Do not display "Appointment Confirmed" just because a form was submitted or WhatsApp was opened. Use "Appointment Request Submitted" or "Please Confirm Your Appointment" until Amruta confirms the booking.
+
+### Contact buttons
+
+Make the following buttons functional:
+- Book an Appointment.
+- Chat on WhatsApp.
+- Call Amruta.
+- View Instagram.
+- View Facebook, once the correct Facebook page URL has been configured.
+
+Use the phone link `tel:+917387268299`.
+
+Use this Instagram link:
+https://www.instagram.com/makeup_byamruta/
+
+Do not invent a Facebook profile or page URL. Keep the Facebook link configurable and hide it if the actual URL has not been provided.
+
+# 11. MAKEUP SPACE, ADDRESS, MAP, AND OPENING HOURS
+
+Create an attractive Makeup Space section with a professional description and appropriate images from the project folder.
+
+Include:
+- Business address.
+- Embedded map.
+- Opening hours.
+- Contact number.
+- WhatsApp appointment link.
+- Directions link if available.
+
+**Important:** The actual street address and opening hours have not been supplied in this prompt.
+
+Create clearly configurable fields for:
+- BUSINESS_ADDRESS
+- GOOGLE_MAPS_URL
+- OPENING_HOURS
+
+Do not invent an address, map location, or opening hours.
+
+If the address is not configured, display an appropriate message inviting the owner to add the business location before publishing the map. Do not show a map for a random or guessed location.
+
+# 12. SOCIAL MEDIA INTEGRATION
+
+Integrate the website with:
+- WhatsApp.
+- Instagram.
+- Facebook.
+
+Requirements:
+- Add visible social media icons in the header or footer where appropriate.
+- Make every icon open the correct configured destination.
+- Ensure WhatsApp opens a conversation with +91 7387268299.
+- Use the Instagram profile supplied above.
+- Use a configurable Facebook URL and do not invent a profile.
+- Include social links in the contact section.
+- Use a WhatsApp booking button on relevant service and portfolio sections.
+- Make social links accessible and mobile-friendly.
+
+Do not claim that the website automatically publishes content to social media. The purpose of these links is to let visitors contact or follow the business.
+
+# 13. REQUIRED TECHNOLOGY STACK
+
+Use the following technology stack.
+
+### Frontend
+- React.
+- TypeScript.
+- Modern responsive CSS or Tailwind CSS.
+- Reusable components.
+- Accessible interface design.
+
+### Source code
+- GitHub repository.
+- Organized source folders.
+- Git-based version control.
+- `.gitignore`.
+- `.env.example` containing variable names only.
+
+### Hosting
+- Render for website hosting and backend API hosting where appropriate.
+- Configure GitHub-to-Render deployment.
+- Configure custom-domain support and HTTPS.
+
+### Database and backend
+- Supabase PostgreSQL.
+- Supabase authentication for authorized administrators.
+- Row Level Security (RLS).
+- Supabase Storage for portfolio images where appropriate.
+- Supabase Edge Functions or a secure Node.js/TypeScript backend hosted on Render.
+
+Choose one primary backend architecture for the main APIs instead of unnecessarily duplicating the same endpoints.
+
+**Do not add ElevenLabs, AI voice agents, voice widgets, AI receptionist features, or telephone automation to this website.**
+
+# 14. SUPABASE DATABASE DESIGN
+
+Create appropriate database migrations and setup instructions.
+
+### Services
+Fields:
+- id
+- service_name
+- category
+- description
+- price
+- active
+- created_at
+- updated_at
+
+### Appointment Requests
+Fields:
+- id
+- customer_name
+- customer_phone
+- service_id or requested_service
+- preferred_date
+- preferred_time
+- customer_message
+- status
+- source
+- created_at
+- updated_at
+
+Use statuses such as:
+- pending_confirmation
+- confirmed
+- rescheduling_requested
+- cancellation_requested
+- completed
+- cancelled
+
+Do not treat a request as confirmed until the owner confirms it.
+
+### Enquiries and Leads
+Fields:
+- id
+- customer_name
+- customer_phone
+- customer_email, if provided
+- requested_service
+- enquiry_message
+- preferred_contact_method
+- contact_consent, where applicable
+- status
+- created_at
+- updated_at
+
+Use UUID identifiers, appropriate relationships, timestamps, validation constraints, and indexes.
+
+Enable Supabase Row Level Security. Public visitors must not be able to view private customer details or access the admin dashboard.
+
+Use secure authorization for administrators and keep server-side credentials private.
+
+# 15. BACKEND AND FORM SECURITY
+
+Create secure backend operations for:
+- Retrieving approved service and pricing information.
+- Saving appointment requests.
+- Saving customer enquiries.
+- Updating appointment request status.
+- Providing booking information to authorized administrators.
+- Preventing duplicate submissions where appropriate.
+
+Requirements:
+- Validate all user inputs.
+- Protect private customer data.
+- Apply rate limiting or suitable abuse protection to public forms.
+- Keep private keys on the server.
+- Never expose Supabase secret or service-role keys in frontend code.
+- Do not commit credentials to GitHub.
+- Log errors without exposing private customer information.
+- Show meaningful success and error messages.
+
+If Supabase credentials are not yet configured, provide clear setup instructions and do not simulate a successful database save.
+
+# 16. ADMIN DASHBOARD
+
+Create a protected administration dashboard for Amruta.
+
+Include:
+- Appointment requests.
+- Customer enquiries.
+- Service and price management.
+- Booking status.
+- Customer name and contact details.
+- Preferred appointment dates and times.
+- Enquiry source.
+- Search and filters.
+- Date filters.
+- Ability for authorized users to mark requests as confirmed, pending, rescheduled, cancelled, or completed.
+
+Ensure only authorized administrators can access private customer information.
+
+Do not create a public admin dashboard or expose the customer database.
+
+# 17. PERFORMANCE, SEO, AND ACCESSIBILITY
+
+Implement:
+- Responsive layouts.
+- Optimized image loading.
+- Descriptive page titles and meta descriptions.
+- Search-engine-friendly headings.
+- Accessible image alt text.
+- Keyboard-accessible navigation and forms.
+- Readable text contrast.
+- Clear form labels and validation errors.
+- Fast loading on mobile networks.
+- Social sharing metadata.
+- Appropriate favicon and brand styling.
+
+Suggested website title:
+
+**Amruta Boarde | Bridal Makeup Artist & Hairstylist**
+
+Suggested meta description:
+
+"Discover bridal makeup, hairstyling, beauty services, and special-occasion artistry by Amruta Boarde, with 12 years of experience. Explore the portfolio and request your appointment through WhatsApp."
+
+# 18. GITHUB, RENDER, AND PRODUCTION DEPLOYMENT
+
+Create an organized, GitHub-ready codebase with:
+- Frontend source code.
+- Backend source code or Edge Function files.
+- Supabase SQL migrations.
+- Reusable UI components.
+- Service menu data.
+- Booking form and WhatsApp integration.
+- `.env.example`.
+- `.gitignore`.
+- README setup documentation.
+- Testing instructions.
+- Render deployment configuration.
+
+Deploy the website using Render, with GitHub connected for deployment.
+
+Document the configuration for:
+- Render build and deployment settings.
+- Environment variables.
+- Supabase project URL and public client key.
+- Secure server-side Supabase credentials.
+- Google Maps URL, if used.
+- Instagram and Facebook URLs.
+- Owner contact and WhatsApp settings.
+- Business address and opening hours.
+
+Never place private credentials in frontend JavaScript, commit them to GitHub, or expose them in public repositories.
+
+Use separate development and production configurations where appropriate.
+
+# 19. FINAL TESTING AND DELIVERY
+
+Test the website on desktop and andoried and iphone model mobile 
+
+Test:
+- All navigation links.
+- Gallery 
+
+Supabase 
+Amruta web pasword 
+Adminlogin@123
+Website password login to clinet  
+Admin@1234
