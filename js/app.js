@@ -74,22 +74,64 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------------------------------
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileDrawer = document.getElementById('mobileDrawer');
+  const mobileDrawerBackdrop = document.getElementById('mobileDrawerBackdrop');
   const mainHeader = document.getElementById('mainHeader');
 
+  function closeMobileMenu() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.remove('open');
+    mobileToggle?.classList.remove('active');
+    mobileToggle?.setAttribute('aria-expanded', 'false');
+    mobileDrawerBackdrop?.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  }
+
+  function openMobileMenu() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.add('open');
+    mobileToggle?.classList.add('active');
+    mobileToggle?.setAttribute('aria-expanded', 'true');
+    mobileDrawerBackdrop?.classList.add('active');
+    document.body.classList.add('menu-open');
+  }
+
   if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', () => {
-      const isOpen = mobileDrawer.classList.toggle('open');
-      mobileToggle.classList.toggle('active');
-      mobileToggle.setAttribute('aria-expanded', isOpen);
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = mobileDrawer.classList.contains('open');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
     });
 
-    // Close drawer when link clicked
+    // Close drawer when any navigation link is clicked
     mobileDrawer.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
-        mobileDrawer.classList.remove('open');
-        mobileToggle.classList.remove('active');
-        mobileToggle.setAttribute('aria-expanded', 'false');
+        closeMobileMenu();
       });
+    });
+
+    // Close when tapping the backdrop overlay
+    mobileDrawerBackdrop?.addEventListener('click', () => {
+      closeMobileMenu();
+    });
+
+    // Close when tapping anywhere outside header and drawer
+    document.addEventListener('click', (e) => {
+      if (mobileDrawer.classList.contains('open')) {
+        if (!mobileDrawer.contains(e.target) && !mobileToggle.contains(e.target)) {
+          closeMobileMenu();
+        }
+      }
+    });
+
+    // Close on Escape key press
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+        closeMobileMenu();
+      }
     });
   }
 

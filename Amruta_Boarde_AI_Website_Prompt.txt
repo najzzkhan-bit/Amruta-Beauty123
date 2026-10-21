@@ -580,5 +580,12 @@ Test:
 Supabase 
 Amruta web pasword 
 Adminlogin@123
-Website password login to clinet  
+Website password login to clinet  amruta2026
 Admin@1234
+
+
+****Admin Password **
+Owner Admin Passcode
+
+Default Demo Passcode: amruta2026
+To change, edit adminPasscode in js/config.js or set ADMIN_PASSCODE in .env.
