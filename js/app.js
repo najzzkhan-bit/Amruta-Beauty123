@@ -77,6 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileDrawerBackdrop = document.getElementById('mobileDrawerBackdrop');
   const mainHeader = document.getElementById('mainHeader');
 
+  // Prevent unintended pinch zooming on mobile Safari / iOS
+  document.addEventListener('gesturestart', (e) => e.preventDefault(), { passive: false });
+  document.addEventListener('gesturechange', (e) => e.preventDefault(), { passive: false });
+  document.addEventListener('gestureend', (e) => e.preventDefault(), { passive: false });
+
   function closeMobileMenu() {
     if (!mobileDrawer) return;
     mobileDrawer.classList.remove('open');
@@ -95,15 +100,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('menu-open');
   }
 
+  window.__toggleAmrutaMobileMenu = function(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    const isOpen = mobileDrawer?.classList.contains('open');
+    if (isOpen) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  };
+
   if (mobileToggle && mobileDrawer) {
     mobileToggle.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const isOpen = mobileDrawer.classList.contains('open');
-      if (isOpen) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
+      window.__toggleAmrutaMobileMenu(e);
     });
 
     // Close drawer when any navigation link is clicked
@@ -1084,7 +1096,6 @@ Message: ${message}`);
   });
 
   // Service Price Manager in Admin
-  const adminServicesTable = document.getElementById('adminServicesTable');
   function renderAdminServices() {
     if (!adminServicesTable) return;
     adminServicesTable.innerHTML = services.map(s => `

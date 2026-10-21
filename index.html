@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Amruta Boarde | Bridal Makeup Artist &amp; Hairstylist</title>
   
   <!-- SEO Meta Tags -->
@@ -22,6 +22,28 @@
 
   <!-- Google Fonts & Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    window.__toggleAmrutaMobileMenu = function(e) {
+      if (e) { e.preventDefault(); e.stopPropagation(); }
+      var drawer = document.getElementById('mobileDrawer');
+      var toggle = document.getElementById('mobileToggle');
+      var backdrop = document.getElementById('mobileDrawerBackdrop');
+      if (!drawer) return;
+      var isOpen = drawer.classList.contains('open');
+      if (isOpen) {
+        drawer.classList.remove('open');
+        if (toggle) { toggle.classList.remove('active'); toggle.setAttribute('aria-expanded', 'false'); }
+        if (backdrop) backdrop.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      } else {
+        drawer.classList.add('open');
+        if (toggle) { toggle.classList.add('active'); toggle.setAttribute('aria-expanded', 'true'); }
+        if (backdrop) backdrop.classList.add('active');
+        document.body.classList.add('menu-open');
+      }
+    };
+  </script>
 </head>
 <body>
 
@@ -76,7 +98,7 @@
         <div class="nav-actions">
           <a href="#booking" class="btn btn-primary btn-sm btn-book-nav">Book an Appointment</a>
           <!-- Mobile Menu Hamburger -->
-          <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <button type="button" class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="window.__toggleAmrutaMobileMenu(event)">
             <span></span>
             <span></span>
             <span></span>
