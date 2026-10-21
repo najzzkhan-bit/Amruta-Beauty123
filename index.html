@@ -36,11 +36,13 @@
         if (toggle) { toggle.classList.remove('active'); toggle.setAttribute('aria-expanded', 'false'); }
         if (backdrop) backdrop.classList.remove('active');
         document.body.classList.remove('menu-open');
+        document.body.style.overflow = '';
       } else {
         drawer.classList.add('open');
         if (toggle) { toggle.classList.add('active'); toggle.setAttribute('aria-expanded', 'true'); }
         if (backdrop) backdrop.classList.add('active');
         document.body.classList.add('menu-open');
+        document.body.style.overflow = 'hidden';
       }
     };
   </script>

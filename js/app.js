@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileToggle?.setAttribute('aria-expanded', 'false');
     mobileDrawerBackdrop?.classList.remove('active');
     document.body.classList.remove('menu-open');
+    document.body.style.overflow = '';
   }
 
   function openMobileMenu() {
@@ -98,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileToggle?.setAttribute('aria-expanded', 'true');
     mobileDrawerBackdrop?.classList.add('active');
     document.body.classList.add('menu-open');
+    document.body.style.overflow = 'hidden';
   }
 
   window.__toggleAmrutaMobileMenu = function(e) {
