@@ -2358,6 +2358,14 @@ button {
 /* ==========================================================================
    Modern Modal Dialogs (<dialog closedby="any">)
    ========================================================================== */
+dialog:not([open]) {
+  display: none !important;
+}
+
+dialog[open] {
+  display: block !important;
+}
+
 dialog {
   border: none;
   border-radius: 24px;
