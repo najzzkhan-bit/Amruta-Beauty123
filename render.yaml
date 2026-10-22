@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: amruta-boarde-beauty
+    name: amrutaboarde
     env: static
     buildCommand: ""
     staticPublishPath: ./
