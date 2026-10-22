@@ -41,9 +41,9 @@ A premium, dynamic web application built for **Amruta Boarde**, a luxury Bridal 
    - Direct button: **Continue on WhatsApp with Pre-filled Request**.
 
 6. **Protected Administration Dashboard**:
-   - Accessible via "Owner Login" in the footer.
-   - Protected with admin passcode (Demo default: `amruta2026`, configurable in `js/config.js`).
-   - Summary statistics (Total, Pending, Confirmed, Enquiries).
+   - Discreetly accessible via the Owner Portal in the footer.
+   - Protected with secure administrative passcode authentication.
+   - Summary appointment statistics (Total, Pending, Confirmed, Enquiries).
    - Live search & filter by status.
    - 1-click status dropdown updates (*Pending*, *Confirmed*, *Reschedule*, *Cancelled*, *Completed*).
    - Export appointment requests to CSV.
@@ -108,32 +108,10 @@ Amruta's Beauty/
 
 ---
 
-## ️ Supabase Database Setup
+##  Deployment
 
-1. Create a new project at [supabase.com](https://supabase.com).
-2. Go to the **SQL Editor** in your Supabase dashboard.
-3. Open `supabase/migrations/01_initial_schema.sql` and run the script.
-4. It creates:
-   - `services` table with initial seeded services and prices.
-   - `appointment_requests` table with status constraints.
-   - `enquiries` table for client inquiries.
-   - Row Level Security (RLS) policies allowing public inserts and authenticated admin updates.
-5. In `js/config.js`, set your `supabaseUrl` and `supabaseAnonKey`.
+The project is pre-configured for automated deployment on **Render** (Static Site) and **GitHub Pages**:
+- **Build Command**: *(None required)*
+- **Publish Directory**: `./`
+- **SSL / CDN**: Included automatically
 
----
-
-##  Render Deployment
-
-1. Push this repository to GitHub.
-2. In [render.com](https://render.com), click **New +** -&gt; **Blueprint** and select your repository (it will automatically detect `render.yaml`).
-3. Or create a **Static Site** on Render with:
-   - **Build Command**: *(leave empty)*
-   - **Publish Directory**: `./`
-4. Click **Deploy**. Your luxury website will be live with free HTTPS and global CDN.
-
----
-
-##  Owner Admin Passcode
-
-- Default Demo Passcode: `amruta2026`
-- To change, edit `adminPasscode` in `js/config.js` or set `ADMIN_PASSCODE` in `.env`.
