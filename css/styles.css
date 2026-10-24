@@ -2312,7 +2312,7 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: stretch;
+  align-items: start;
 }
 
 .address-card {
@@ -2364,7 +2364,8 @@ button {
   overflow: hidden;
   border: 2px solid var(--c-border);
   box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-  min-height: 440px;
+  height: 440px;
+  max-height: 460px;
   position: relative;
   display: block;
 }
@@ -2372,7 +2373,6 @@ button {
 .map-iframe {
   width: 100%;
   height: 100%;
-  min-height: 440px;
   border: 0;
   display: block;
 }
@@ -2624,12 +2624,13 @@ button {
     max-width: 100% !important;
     margin: 0 auto !important;
     border-radius: 20px !important;
-    min-height: 400px !important;
+    height: 350px !important;
+    max-height: 360px !important;
     box-sizing: border-box !important;
   }
   .map-iframe {
     width: 100% !important;
-    min-height: 400px !important;
+    height: 100% !important;
   }
   .map-overlay-card {
     left: 14px !important;
@@ -2723,11 +2724,12 @@ button {
     white-space: nowrap !important;
   }
   .map-container-box {
-    min-height: 380px !important;
+    height: 300px !important;
+    max-height: 320px !important;
     border-radius: 18px !important;
   }
   .map-iframe {
-    min-height: 380px !important;
+    height: 100% !important;
   }
   .map-overlay-card {
     left: 10px !important;
