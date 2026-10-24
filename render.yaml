@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: amrutaboarde
+    name: amrutamakeover
     env: static
     buildCommand: ""
     staticPublishPath: ./
