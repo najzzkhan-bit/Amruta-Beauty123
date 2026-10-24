@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------------------------------
   // 1. Data Store Initialization (Local Storage with Supabase readiness)
   // --------------------------------------------------------------------------
-  let services = loadStoredData('amruta_services', config.initialServices);
+  let services = loadStoredData('amruta_services_v3', config.initialServices);
   let appointments = loadStoredData('amruta_appointments', [
     {
       id: "demo-apt-1",
@@ -1131,7 +1131,7 @@ Message: ${message}`);
         const item = services.find(s => s.id === srvId);
         if (item && input) {
           item.price = input.value.trim();
-          saveStoredData('amruta_services', services);
+          saveStoredData('amruta_services_v3', services);
           renderServices();
           populateBookingDropdown();
           alert(`Updated price for ${item.name} to ${item.price}`);

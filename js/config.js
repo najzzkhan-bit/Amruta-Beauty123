@@ -4,7 +4,7 @@
  */
 
 window.AMRUTA_CONFIG = {
-  brandName: "Amruta Boarde Makeup Artist",
+  brandName: "AMRUTA MAKEOVER",
   tagline: "Bridal Makeup Artist | Hairstylist",
   experienceYears: 12,
   contactPhone: "+917387268299",
@@ -17,7 +17,7 @@ window.AMRUTA_CONFIG = {
 
   // Business Location Configuration
   // Keep empty until Amruta configures her permanent studio address and map embed
-  businessAddress: "",
+  businessAddress: "Heaven park lane no 1 Amruta Makeover near mountain high restaurant and bar, Jarande nagar Mohammed wadi Pune Maharashtra 411060",
   googleMapsUrl: "",
   openingHours: "Monday to Sunday: By Prior Appointment",
 
@@ -30,51 +30,69 @@ window.AMRUTA_CONFIG = {
 
   // Initial Services List (Preserving exact prices from client requirements)
   initialServices: [
-    // Skincare and Facial Services
-    { id: "srv-1", name: "Eyebrow", category: "Skincare and Facial Services", price: "₹30", priceNum: 30, description: "Precise shaping to complement your facial structure" },
-    { id: "srv-2", name: "Fruit Cleanup", category: "Skincare and Facial Services", price: "₹300", priceNum: 300, description: "Gentle natural cleansing for clear, radiant skin" },
-    { id: "srv-3", name: "Upper Lips", category: "Skincare and Facial Services", price: "₹15", priceNum: 15, description: "Quick, hygienic threading for smooth skin" },
-    { id: "srv-4", name: "Fruit Facial", category: "Skincare and Facial Services", price: "₹500", priceNum: 500, description: "Rejuvenating organic fruit extracts facial" },
-    { id: "srv-5", name: "Forehead", category: "Skincare and Facial Services", price: "₹15", priceNum: 15, description: "Clean forehead threading and shaping" },
-    { id: "srv-6", name: "Fruit Bleach", category: "Skincare and Facial Services", price: "₹150", priceNum: 150, description: "Mild fruit bleach to naturally brighten skin tone" },
-    { id: "srv-7", name: "D-Tan", category: "Skincare and Facial Services", price: "₹200", priceNum: 200, description: "Targeted de-tanning therapy for radiant glow" },
-    { id: "srv-8", name: "Face Wax", category: "Skincare and Facial Services", price: "₹200", priceNum: 200, description: "Gentle facial waxing for a lasting velvet finish" },
-    { id: "srv-9", name: "Arms Bleach", category: "Skincare and Facial Services", price: "₹150", priceNum: 150, description: "Skin tone balancing bleach for full arms" },
-    { id: "srv-10", name: "Arms D-Tan", category: "Skincare and Facial Services", price: "₹250", priceNum: 250, description: "Sun tan removal treatment for glowing arms" },
-    { id: "srv-11", name: "Raga Facial", category: "Skincare and Facial Services", price: "₹700", priceNum: 700, description: "Premium therapeutic facial for deep cellular renewal" },
-    { id: "srv-12", name: "Aroma Facial", category: "Skincare and Facial Services", price: "₹500", priceNum: 500, description: "Soothing aromatic essential oil facial treatment" },
-    { id: "srv-13", name: "Hand Polishing", category: "Skincare and Facial Services", price: "₹300", priceNum: 300, description: "Exfoliation and nourishing polish for silky hands" },
-
-    // Waxing and Body Care
-    { id: "srv-14", name: "Waxing", category: "Waxing and Body Care", price: "Contact for price", priceNum: null, description: "Custom waxing session customized to your skin sensitivity" },
-    { id: "srv-15", name: "Full Arms + Underarms", category: "Waxing and Body Care", price: "₹150", priceNum: 150, description: "Complete arms and underarm gentle waxing" },
-    { id: "srv-16", name: "Half Legs", category: "Waxing and Body Care", price: "₹150", priceNum: 150, description: "Smooth knee-down leg waxing" },
-    { id: "srv-17", name: "Full Legs", category: "Waxing and Body Care", price: "₹300", priceNum: 300, description: "Silky full-length leg waxing" },
-    { id: "srv-18", name: "Head Massage", category: "Waxing and Body Care", price: "₹200", priceNum: 200, description: "Relaxing stress-relief acupressure warm oil massage" },
-    { id: "srv-19", name: "Full Body Massage", category: "Waxing and Body Care", price: "₹1,000", priceNum: 1000, description: "Deeply restorative full-body therapeutic oil massage" },
-    { id: "srv-20", name: "Foot Massage", category: "Waxing and Body Care", price: "₹150", priceNum: 150, description: "Soothing foot reflexology and relaxation" },
-    { id: "srv-21", name: "Leg Polishing", category: "Waxing and Body Care", price: "₹400", priceNum: 400, description: "Exfoliating scrub and luminous glow polish for legs" },
-    { id: "srv-22", name: "Full Body Polishing", category: "Waxing and Body Care", price: "₹1,000", priceNum: 1000, description: "Luxurious head-to-toe exfoliation and skin glow wrap" },
-
-    // Nail Care
-    { id: "srv-23", name: "Manicure", category: "Nail Care", price: "₹250", priceNum: 250, description: "Nail shaping, cuticle therapy, hand massage, and polish" },
-    { id: "srv-24", name: "Pedicure", category: "Nail Care", price: "₹350", priceNum: 350, description: "Warm foot soak, exfoliation, massage, and nail care" },
-
     // Hair Services
-    { id: "srv-25", name: "Hair Spa Matrix", category: "Hair Services", price: "₹500", priceNum: 500, description: "Matrix deep moisture and smoothing hair therapy" },
-    { id: "srv-26", name: "Hair Spa Keratin", category: "Hair Services", price: "₹700", priceNum: 700, description: "Intense keratin infusion for glossy, frizz-free hair" },
-    { id: "srv-27", name: "Hair Cutting", category: "Hair Services", price: "₹350", priceNum: 350, description: "Precision haircut tailored to your styling preferences" },
-    { id: "srv-28", name: "Head Wash", category: "Hair Services", price: "₹150", priceNum: 150, description: "Clarifying wash with nourishing hair conditioner" },
-    { id: "srv-29", name: "Root Touch Up", category: "Hair Services", price: "₹500", priceNum: 500, description: "Flawless root color application and seamless blending" },
-    { id: "srv-30", name: "Head Wash + Blow Dry", category: "Hair Services", price: "₹250", priceNum: 250, description: "Cleansing head wash paired with voluminous blowout styling" },
+    { id: "hair-1", name: "Women's Haircut & Style", category: "Hair Services", price: "₹400", priceNum: 400 },
+    { id: "hair-2", name: "Only Haircut", category: "Hair Services", price: "₹250", priceNum: 250 },
+    { id: "hair-3", name: "Kids Haircut (Under 12)", category: "Hair Services", price: "₹200", priceNum: 200 },
+    { id: "hair-4", name: "Wash & Blow Dry", category: "Hair Services", price: "₹350", priceNum: 350 },
+    { id: "hair-5", name: "Blow dry", category: "Hair Services", price: "₹300", priceNum: 300 },
+    { id: "hair-6", name: "haircut wash n blow dry", category: "Hair Services", price: "₹500", priceNum: 500 },
 
-    // Mehndi Services
-    { id: "srv-31", name: "Arabic Mehndi", category: "Mehndi Services", price: "₹250", priceNum: 250, description: "Elegant Arabic floral and geometric mehndi patterns" },
-    { id: "srv-32", name: "Bridal Mehndi", category: "Mehndi Services", price: "₹2,000", priceNum: 2000, description: "Traditional intricate bridal mehndi for hands and feet" },
+    // Wax Services
+    { id: "wax-1", name: "Classic wax hand", category: "Wax Services", price: "₹250", priceNum: 250 },
+    { id: "wax-2", name: "Classic leg", category: "Wax Services", price: "₹475", priceNum: 475 },
+    { id: "wax-3", name: "Half leg", category: "Wax Services", price: "₹350", priceNum: 350 },
+    { id: "wax-4", name: "UA", category: "Wax Services", price: "₹100", priceNum: 100 },
+    { id: "wax-5", name: "rica hand", category: "Wax Services", price: "₹350", priceNum: 350 },
+    { id: "wax-6", name: "rica leg", category: "Wax Services", price: "₹700", priceNum: 700 },
+    { id: "wax-7", name: "half leg", category: "Wax Services", price: "₹400", priceNum: 400 },
+    { id: "wax-8", name: "UA", category: "Wax Services", price: "₹150", priceNum: 150 },
+    { id: "wax-9", name: "full arms + leg+ UA", category: "Wax Services", price: "₹700", priceNum: 700 },
+    { id: "wax-10", name: "Rica full arms +leg+UA", category: "Wax Services", price: "₹1100", priceNum: 1100 },
+    { id: "wax-11", name: "front", category: "Wax Services", price: "₹300 R400", priceNum: 300 },
+    { id: "wax-12", name: "back", category: "Wax Services", price: "₹300 R400", priceNum: 300 },
+    { id: "wax-13", name: "bikini", category: "Wax Services", price: "₹1500", priceNum: 1500 },
+    { id: "wax-14", name: "peel off upper lip", category: "Wax Services", price: "₹70", priceNum: 70 },
+    { id: "wax-15", name: "chin", category: "Wax Services", price: "₹80", priceNum: 80 },
+    { id: "wax-16", name: "forehade", category: "Wax Services", price: "₹100", priceNum: 100 },
+    { id: "wax-17", name: "face", category: "Wax Services", price: "₹350", priceNum: 350 },
 
-    // Signature Bridal Artistry (Special packages)
-    { id: "srv-33", name: "Complete Bridal Artistry Package", category: "Bridal & Wedding Artistry", price: "Inquire for Bridal Package", priceNum: null, description: "Full bridal makeup, luxury hairstyling, saree draping / veil fitting, and touch-up kit" },
-    { id: "srv-34", name: "Engagement & Sangeet Glam", category: "Bridal & Wedding Artistry", price: "Inquire for Bridal Package", priceNum: null, description: "High-definition camera-ready makeup and designer hairstyling" },
-    { id: "srv-35", name: "Reception Look & Cocktail Artistry", category: "Bridal & Wedding Artistry", price: "Inquire for Bridal Package", priceNum: null, description: "Sophisticated red-carpet evening makeup and statement hairstyles" }
+    // Treading
+    { id: "thread-1", name: "Eyebrows", category: "Treading", price: "₹50", priceNum: 50 },
+    { id: "thread-2", name: "upperlip", category: "Treading", price: "₹20", priceNum: 20 },
+    { id: "thread-3", name: "forehade.", category: "Treading", price: "₹30", priceNum: 30 },
+    { id: "thread-4", name: "chin.", category: "Treading", price: "₹20", priceNum: 20 },
+    { id: "thread-5", name: "face.", category: "Treading", price: "₹300", priceNum: 300 },
+
+    // Hair Treatment
+    { id: "ht-1", name: "Deep Conditioning Treatment", category: "Hair Treatment", price: "₹600", priceNum: 600 },
+    { id: "ht-2", name: "Hair Spa Treatment starts", category: "Hair Treatment", price: "₹850", priceNum: 850 },
+    { id: "ht-3", name: "Protein hair spa starts", category: "Hair Treatment", price: "₹1500", priceNum: 1500 },
+    { id: "ht-4", name: "Botox Treatment started", category: "Hair Treatment", price: "₹2800", priceNum: 2800 },
+    { id: "ht-5", name: "hade massage", category: "Hair Treatment", price: "₹500", priceNum: 500 },
+    { id: "ht-6", name: "Hair colour starts", category: "Hair Treatment", price: "₹850", priceNum: 850 },
+
+    // Facial & Skincare
+    { id: "facial-1", name: "clean up", category: "Facial & Skincare", price: "₹400", priceNum: 400 },
+    { id: "facial-2", name: "fruit Cleansing", category: "Facial & Skincare", price: "₹550", priceNum: 550 },
+    { id: "facial-3", name: "whitening clenup", category: "Facial & Skincare", price: "₹750", priceNum: 750 },
+    { id: "facial-4", name: "detan clean up", category: "Facial & Skincare", price: "₹850", priceNum: 850 },
+    { id: "facial-5", name: "classic facial", category: "Facial & Skincare", price: "₹850", priceNum: 850 },
+    { id: "facial-6", name: "Gold facial", category: "Facial & Skincare", price: "₹1050", priceNum: 1050 },
+    { id: "facial-7", name: "Whitening facial", category: "Facial & Skincare", price: "₹1350", priceNum: 1350 },
+    { id: "facial-8", name: "party glow", category: "Facial & Skincare", price: "₹1450", priceNum: 1450 },
+    { id: "facial-9", name: "youth facial", category: "Facial & Skincare", price: "₹1500", priceNum: 1500 },
+    { id: "facial-10", name: "detan facial", category: "Facial & Skincare", price: "₹1700", priceNum: 1700 },
+    { id: "facial-11", name: "korean facial", category: "Facial & Skincare", price: "₹2500", priceNum: 2500 },
+
+    // HydraFacial & Skincare
+    { id: "hydra-1", name: "Classic hydra", category: "HydraFacial & Skincare", price: "₹1500", priceNum: 1500 },
+    { id: "hydra-2", name: "golden hydra", category: "HydraFacial & Skincare", price: "₹1650", priceNum: 1650 },
+    { id: "hydra-3", name: "whitening hydra", category: "HydraFacial & Skincare", price: "₹1700", priceNum: 1700 },
+    { id: "hydra-4", name: "party glow", category: "HydraFacial & Skincare", price: "₹1850", priceNum: 1850 },
+    { id: "hydra-5", name: "youthhydra", category: "HydraFacial & Skincare", price: "₹1850", priceNum: 1850 },
+    { id: "hydra-6", name: "korean hydra", category: "HydraFacial & Skincare", price: "₹3000", priceNum: 3000 },
+    { id: "hydra-7", name: "face detan", category: "HydraFacial & Skincare", price: "₹250", priceNum: 250 },
+    { id: "hydra-8", name: "face bleach", category: "HydraFacial & Skincare", price: "₹350", priceNum: 350 }
   ]
 };
