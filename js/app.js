@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------------------------------
   // 1. Data Store Initialization (Local Storage with Supabase readiness)
   // --------------------------------------------------------------------------
-  let services = loadStoredData('amruta_services_v3', config.initialServices);
+  let services = (config && config.initialServices && config.initialServices.length > 0) ? config.initialServices : loadStoredData('amruta_services_v3', []);
   let appointments = loadStoredData('amruta_appointments', [
     {
       id: "demo-apt-1",
