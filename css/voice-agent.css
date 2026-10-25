@@ -1,0 +1,385 @@
+﻿/* ==========================================================================
+   Amruta Makeover - AI Voice Assistant Styling
+   Luxury Champagne Gold & Royal Burgundy Theme
+   ========================================================================== */
+
+/* Floating Voice Trigger Button */
+.floating-voice-agent {
+  position: fixed;
+  bottom: 84px;
+  right: 20px;
+  z-index: 998;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #1A1210 0%, #2B1E1A 100%);
+  color: #F8E7C9;
+  border: 1.5px solid rgba(212, 175, 55, 0.65);
+  border-radius: 999px;
+  padding: 10px 18px 10px 14px;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), 0 0 16px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+}
+
+.floating-voice-agent:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: #D4AF37;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45), 0 0 24px rgba(212, 175, 55, 0.55);
+}
+
+.voice-agent-pulse-icon {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D4AF37 0%, #AA7A1E 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1A1210;
+  flex-shrink: 0;
+}
+
+.voice-agent-pulse-icon::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.6);
+  animation: voiceTriggerPulse 2s infinite ease-out;
+}
+
+@keyframes voiceTriggerPulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Voice Assistant Modal */
+.voice-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 12, 10, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.voice-modal-backdrop.active {
+  display: flex;
+  opacity: 1;
+}
+
+.voice-modal-container {
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  background: #1F1513;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(212, 175, 55, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #F8E7C9;
+  font-family: 'Montserrat', sans-serif;
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.voice-modal-backdrop.active .voice-modal-container {
+  transform: translateY(0) scale(1);
+}
+
+/* Header */
+.voice-modal-header {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(36, 24, 21, 0.6);
+}
+
+.voice-modal-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.voice-modal-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid #D4AF37;
+  object-fit: cover;
+}
+
+.voice-modal-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #FFF;
+  letter-spacing: 0.02em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.voice-modal-subtitle {
+  font-size: 0.72rem;
+  color: #D4AF37;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.voice-modal-close-btn {
+  background: transparent;
+  border: none;
+  color: #CBB9B0;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: color 0.2s;
+}
+
+.voice-modal-close-btn:hover {
+  color: #FFF;
+}
+
+/* Visualizer Section */
+.voice-visualizer-section {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  position: relative;
+}
+
+.voice-orb-button {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #D4AF37 0%, #AA7A1E 100%);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  color: #1A1210;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.voice-orb-button svg {
+  width: 38px;
+  height: 38px;
+  transition: transform 0.2s ease;
+}
+
+.voice-orb-button:hover {
+  transform: scale(1.06);
+  box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
+}
+
+/* Sound Waves Animation when listening / speaking */
+.voice-wave-ring {
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  border: 2px solid rgba(212, 175, 55, 0.6);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.voice-orb-button.listening .voice-wave-ring-1 {
+  animation: wavePulse 1.8s infinite cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.voice-orb-button.listening .voice-wave-ring-2 {
+  animation: wavePulse 1.8s infinite 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.voice-orb-button.speaking {
+  background: linear-gradient(135deg, #8A1538 0%, #D4AF37 100%);
+  color: #FFF;
+}
+.voice-orb-button.speaking .voice-wave-ring-1 {
+  border-color: rgba(212, 175, 55, 0.9);
+  animation: wavePulse 1.2s infinite ease-out;
+}
+
+@keyframes wavePulse {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.voice-status-text {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: #D4AF37;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Messages Transcript Body */
+.voice-transcript-body {
+  flex: 1;
+  min-height: 180px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(26, 18, 16, 0.8);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.voice-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  word-break: break-word;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.voice-msg.ai {
+  align-self: flex-start;
+  background: #2D201C;
+  color: #F8E7C9;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-bottom-left-radius: 4px;
+}
+
+.voice-msg.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #8A1538 0%, #5E0D24 100%);
+  color: #FFF;
+  border-bottom-right-radius: 4px;
+}
+
+.voice-msg-booking-card {
+  margin-top: 8px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px dashed #D4AF37;
+  border-radius: 10px;
+  font-size: 0.82rem;
+}
+
+.voice-msg-booking-card a {
+  display: inline-block;
+  margin-top: 6px;
+  color: #D4AF37;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Quick Topic Pills */
+.voice-quick-topics {
+  padding: 10px 20px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: #1B1311;
+}
+.voice-quick-topics::-webkit-scrollbar { display: none; }
+
+.voice-quick-pill {
+  white-space: nowrap;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: #F8E7C9;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.voice-quick-pill:hover {
+  background: #D4AF37;
+  color: #1A1210;
+}
+
+/* Text Input Bar (for users who prefer typing or in noisy room) */
+.voice-input-bar {
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #18100E;
+}
+
+.voice-text-input {
+  flex: 1;
+  background: #261A17;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 999px;
+  padding: 9px 16px;
+  color: #FFF;
+  font-family: inherit;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.voice-text-input:focus {
+  border-color: #D4AF37;
+}
+
+.voice-send-btn {
+  background: #D4AF37;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: #1A1210;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.voice-send-btn:hover {
+  transform: scale(1.08);
+}
+
+@media (max-width: 480px) {
+  .floating-voice-agent {
+    bottom: 78px;
+    right: 14px;
+    padding: 8px 14px;
+    font-size: 0.82rem;
+  }
+  .voice-modal-container {
+    max-height: 95vh;
+  }
+}

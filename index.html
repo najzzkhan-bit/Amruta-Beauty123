@@ -22,6 +22,7 @@
 
   <!-- Google Fonts & Stylesheet -->
   <link rel="stylesheet" href="css/styles.css?v=3.4">
+  <link rel="stylesheet" href="css/voice-agent.css?v=1.0">
 
   <script>
     // Global Mobile Drawer Controller
@@ -94,7 +95,18 @@
     <span>Chat with Amruta</span>
   </a>
 
-  <!-- Top Announcement Bar -->
+    <!-- Floating AI Voice Assistant Trigger -->
+  <button type="button" class="floating-voice-agent" id="floatingVoiceTrigger" aria-label="Open Amruta AI Voice Assistant">
+    <div class="voice-agent-pulse-icon">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+        <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+      </svg>
+    </div>
+    <span>Ask Amruta AI</span>
+  </button>
+
+    <!-- Top Announcement Bar -->
   <div class="top-bar">
     <div class="container">
       <div class="top-bar-left">
@@ -1419,8 +1431,57 @@
     </div>
   </dialog>
 
+    <!-- Amruta AI Voice Assistant Modal -->
+  <div class="voice-modal-backdrop" id="voiceModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="voiceModalTitle">
+    <div class="voice-modal-container">
+      <div class="voice-modal-header">
+        <div class="voice-modal-title-wrap">
+          <img src="assets/images/owner/amruta-boarde.jpg" alt="Amruta Boarde" class="voice-modal-avatar">
+          <div>
+            <h3 class="voice-modal-title" id="voiceModalTitle">Amruta AI Concierge</h3>
+            <span class="voice-modal-subtitle">Salon &amp; Bridal Voice Assistant</span>
+          </div>
+        </div>
+        <button type="button" class="voice-modal-close-btn" id="voiceModalCloseBtn" aria-label="Close voice assistant">&times;</button>
+      </div>
+
+      <div class="voice-visualizer-section">
+        <button type="button" class="voice-orb-button" id="voiceOrbBtn" aria-label="Tap to speak">
+          <div class="voice-wave-ring voice-wave-ring-1"></div>
+          <div class="voice-wave-ring voice-wave-ring-2"></div>
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+          </svg>
+        </button>
+        <div class="voice-status-text" id="voiceStatusText">Tap microphone to speak</div>
+      </div>
+
+      <div class="voice-quick-topics">
+        <button type="button" class="voice-quick-pill" data-query="What are the HydraFacial rates?">HydraFacials</button>
+        <button type="button" class="voice-quick-pill" data-query="Tell me about bridal makeup packages">Bridal Packages</button>
+        <button type="button" class="voice-quick-pill" data-query="What are your haircut prices?">Haircut &amp; Styling</button>
+        <button type="button" class="voice-quick-pill" data-query="Hair Botox and Hair Spa treatments">Botox &amp; Spa</button>
+        <button type="button" class="voice-quick-pill" data-query="Where is your salon located?">Location &amp; Timings</button>
+        <button type="button" class="voice-quick-pill" data-query="I want to book an appointment">Book Appointment</button>
+      </div>
+
+      <div class="voice-transcript-body" id="voiceTranscriptBody"></div>
+
+      <div class="voice-input-bar">
+        <input type="text" class="voice-text-input" id="voiceTextInput" placeholder="Ask a question or type to talk..." aria-label="Type message">
+        <button type="button" class="voice-send-btn" id="voiceSendBtn" aria-label="Send message">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- JavaScript Modules -->
   <script src="js/config.js?v=3.4"></script>
   <script src="js/app.js?v=3.4"></script>
+  <script src="js/voice-agent.js?v=1.0"></script>
 </body>
 </html>
