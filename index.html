@@ -85,6 +85,16 @@
       }
     };
   </script>
+
+  <style>
+    /* Dograh Voice Widget - Positioned Bottom-Left (Opposite WhatsApp) */
+    .dograh-widget-container {
+      left: 24px !important;
+      right: auto !important;
+      bottom: 24px !important;
+    }
+  </style>
+
 </head>
 <body>
 
@@ -1422,5 +1432,22 @@
   <!-- JavaScript Modules -->
   <script src="js/config.js?v=3.4"></script>
   <script src="js/app.js?v=3.4"></script>
+
+  <!-- Dograh Voice Widget: Positioned Opposite WhatsApp (Bottom-Left) -->
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://app.dograh.com/embed/dograh-widget.js?token=emb_SxWapiSuOTStiNBkQt24PsDYyF67jButBfouItjEZa4&environment=production&apiEndpoint=https://api.dograh.com';
+      js.setAttribute('data-dograh-context', JSON.stringify({
+        page_url: window.location.href,
+        today: new Date().toISOString().slice(0, 10)
+      }));
+      js.async = true;
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'dograh-widget'));
+  </script>
+
 </body>
 </html>
