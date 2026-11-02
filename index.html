@@ -95,45 +95,7 @@
     <span>Chat with Amruta</span>
   </a>
 
-  <!-- Floating Ashwini AI Voice Assistant (Opposite WhatsApp on Bottom Left) -->
-  <div class="floating-ashwini-wrap" id="ashwiniFloatingWrap">
-    <div class="ashwini-greeting-bubble" id="ashwiniGreetingBubble" role="status" aria-live="polite">
-      <div class="ashwini-bubble-header">
-        <div class="ashwini-greeting-title">
-          <span>✨</span> Speak with Ashwini
-        </div>
-        <button type="button" class="ashwini-bubble-close" id="ashwiniBubbleCloseBtn" aria-label="Dismiss greeting">&times;</button>
-      </div>
-      <div class="ashwini-greeting-langs">
-        <span class="ashwini-lang-tag">Hindi</span>
-        <span class="ashwini-lang-sep">|</span>
-        <span class="ashwini-lang-tag">English</span>
-        <span class="ashwini-lang-sep">|</span>
-        <span class="ashwini-lang-tag">Marathi</span>
-      </div>
-      <p class="ashwini-greeting-desc">Speak in Hindi, English, or Marathi</p>
-    </div>
-
-    <button type="button" class="floating-ashwini-btn" id="ashwiniTriggerBtn" aria-label="Speak with Ashwini AI Assistant">
-      <div class="ashwini-avatar-ring">
-        <img src="assets/images/ashwini-avatar.jpg" alt="Ashwini AI Assistant" class="ashwini-avatar-img">
-        <span class="ashwini-status-dot" title="Online"></span>
-      </div>
-      <div class="ashwini-btn-content">
-        <span class="ashwini-btn-name">Ashwini AI Assistant</span>
-        <span class="ashwini-btn-sub">Speak with Ashwini &bull; Voice</span>
-      </div>
-      <div class="ashwini-mic-pill" aria-hidden="true">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-        </svg>
-      </div>
-    </button>
-  </div>
-
-
-    <!-- Top Announcement Bar -->
+  <!-- Top Announcement Bar -->
   <div class="top-bar">
     <div class="container">
       <div class="top-bar-left">
@@ -1457,41 +1419,67 @@
       </div>
     </div>
   </dialog>
-  <!-- Ashwini AI Assistant Voice Modal -->
-  <div class="ashwini-modal-backdrop" id="ashwiniModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="ashwiniModalTitle">
-    <div class="ashwini-modal-container">
-      <div class="ashwini-modal-header">
-        <div class="ashwini-modal-profile">
-          <div class="ashwini-modal-avatar-wrap">
-            <img src="assets/images/ashwini-avatar.jpg" alt="Ashwini AI Assistant" class="ashwini-modal-avatar">
+  <!-- Ashwini AI Assistant - Side Floating Box (Web Screen Only, Opposite WhatsApp) -->
+  <aside class="ashwini-side-widget" id="ashwiniSideWidget" aria-label="Ashwini AI Voice Assistant">
+    <!-- Collapsed Floating Pill/Button (when minimized) -->
+    <button type="button" class="ashwini-side-collapsed-btn" id="ashwiniCollapsedBtn" aria-label="Open Ashwini AI Assistant">
+      <div class="ashwini-mini-avatar-wrap">
+        <img src="assets/images/ashwini-avatar.jpg" alt="Ashwini AI Assistant" class="ashwini-mini-avatar">
+        <span class="ashwini-mini-pulse"></span>
+      </div>
+      <div class="ashwini-mini-text">
+        <span class="ashwini-mini-title">Ashwini AI</span>
+        <span class="ashwini-mini-sub">Speak with Ashwini</span>
+      </div>
+      <div class="ashwini-mini-mic" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+      </div>
+    </button>
+
+    <!-- Medium-Sized Side Card -->
+    <div class="ashwini-side-box" id="ashwiniSideCard">
+      <!-- Card Header -->
+      <div class="ashwini-box-header">
+        <div class="ashwini-box-profile">
+          <div class="ashwini-avatar-wrap">
+            <img src="assets/images/ashwini-avatar.jpg" alt="Ashwini AI Assistant" class="ashwini-avatar-img">
             <span class="ashwini-status-dot" title="Online"></span>
           </div>
-          <div>
-            <h3 class="ashwini-modal-title" id="ashwiniModalTitle">Ashwini AI Assistant</h3>
-            <span class="ashwini-modal-subtitle">Salon Receptionist &bull; Amruta Makeover</span>
+          <div class="ashwini-box-title-wrap">
+            <h3 class="ashwini-box-name">Ashwini AI Assistant</h3>
+            <span class="ashwini-box-role">Salon Receptionist &bull; Voice</span>
           </div>
         </div>
-        <button type="button" class="ashwini-modal-close-btn" id="ashwiniModalCloseBtn" aria-label="Close voice assistant">&times;</button>
+        <div class="ashwini-box-controls">
+          <button type="button" class="ashwini-minimize-btn" id="ashwiniMinimizeBtn" aria-label="Minimize Ashwini Assistant" title="Minimize">&minus;</button>
+        </div>
       </div>
 
-      <div class="ashwini-modal-body">
-        <div class="ashwini-greeting-card-inner">
-          <div class="ashwini-welcome-heading">Speak with Ashwini</div>
-          <div class="ashwini-modal-langs">
-            <span class="ashwini-modal-lang-chip">हिन्दी (Hindi)</span>
-            <span class="ashwini-modal-lang-chip">English</span>
-            <span class="ashwini-modal-lang-chip">मराठी (Marathi)</span>
+      <!-- Card Body -->
+      <div class="ashwini-box-body">
+        <div class="ashwini-box-greeting">
+          <div class="ashwini-greeting-row">
+            <span class="ashwini-sparkle">✨</span>
+            <h4 class="ashwini-greeting-heading">Speak with Ashwini</h4>
           </div>
-          <p class="ashwini-welcome-desc">
-            You can speak with Ashwini in any of these 3 languages. Ask about bridal makeup packages, HydraFacials, hair botox, salon pricing, or book an appointment.
-          </p>
+          <div class="ashwini-box-langs">
+            <span class="ashwini-lang-chip">Hindi</span>
+            <span class="ashwini-lang-sep">•</span>
+            <span class="ashwini-lang-chip">English</span>
+            <span class="ashwini-lang-sep">•</span>
+            <span class="ashwini-lang-chip">Marathi</span>
+          </div>
+          <p class="ashwini-box-desc">Speak in Hindi, English, or Marathi for bridal packages, hair styling &amp; bookings.</p>
         </div>
 
         <!-- Dograh Voice Connector Container -->
         <div id="dograh-inline-container" class="dograh-inline-container">
           <div class="dograh-inline-status">
             <div class="dograh-inline-status-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
                 <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
                 <line x1="12" y1="19" x2="12" y2="22"></line>
@@ -1500,35 +1488,33 @@
             <p class="dograh-inline-status-text">Ready to Connect</p>
             <p class="dograh-inline-status-subtext">Click below to start 2-way voice conversation</p>
             <div class="dograh-inline-button-container">
-              <button type="button" class="ashwini-fallback-start-btn" id="ashwiniFallbackStartBtn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <button type="button" class="ashwini-voice-call-btn" id="ashwiniBoxStartBtn">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
                   <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
                 </svg>
-                <span>Talk to Ashwini</span>
+                <span>Tap to Speak</span>
               </button>
             </div>
           </div>
         </div>
 
-        <div class="ashwini-topic-section">
-          <span class="ashwini-topic-label">Quick Inquiries:</span>
-          <div class="ashwini-topic-pills">
-            <button type="button" class="ashwini-topic-pill">Bridal Packages</button>
-            <button type="button" class="ashwini-topic-pill">HydraFacial Rates</button>
-            <button type="button" class="ashwini-topic-pill">Hair Botox &amp; Spa</button>
-            <button type="button" class="ashwini-topic-pill">Salon Location</button>
-            <button type="button" class="ashwini-topic-pill">Book Appointment</button>
-          </div>
+        <!-- Quick Topic Chips -->
+        <div class="ashwini-quick-topics">
+          <button type="button" class="ashwini-mini-chip">Bridal Packages</button>
+          <button type="button" class="ashwini-mini-chip">HydraFacials</button>
+          <button type="button" class="ashwini-mini-chip">Hair Botox</button>
+          <button type="button" class="ashwini-mini-chip">Book Slot</button>
         </div>
       </div>
 
-      <div class="ashwini-modal-footer">
-        <span>⚡ Natural 2-way AI voice</span>
-        <a href="https://wa.me/917387268299" target="_blank" rel="noopener noreferrer">Prefer WhatsApp? Chat &rarr;</a>
+      <!-- Card Footer -->
+      <div class="ashwini-box-footer">
+        <span class="ashwini-footer-tech">⚡ 2-Way Voice AI</span>
+        <a href="https://wa.me/917387268299" target="_blank" rel="noopener noreferrer" class="ashwini-footer-wa">WhatsApp &rarr;</a>
       </div>
     </div>
-  </div>
+  </aside>
 
   <!-- JavaScript Modules -->
   <script src="js/config.js?v=3.4"></script>

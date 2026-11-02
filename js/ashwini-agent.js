@@ -1,73 +1,43 @@
 /**
- * Ashwini AI Voice Assistant Controller
+ * Ashwini AI Voice Assistant Controller - Side Box Edition
  * Amruta Makeover Beauty Salon
- * Powers the bottom-left floating widget & Dograh WebRTC voice interaction
+ * Powers the bottom-left medium side box & Dograh WebRTC voice interaction
  */
 
 (function () {
   'use strict';
 
-  document.addEventListener('DOMContentLoaded', initAshwiniAssistant);
+  document.addEventListener('DOMContentLoaded', initAshwiniSideWidget);
 
-  function initAshwiniAssistant() {
-    const triggerBtn = document.getElementById('ashwiniTriggerBtn');
-    const modalBackdrop = document.getElementById('ashwiniModalBackdrop');
-    const modalCloseBtn = document.getElementById('ashwiniModalCloseBtn');
-    const greetingBubble = document.getElementById('ashwiniGreetingBubble');
-    const bubbleCloseBtn = document.getElementById('ashwiniBubbleCloseBtn');
-    const fallbackStartBtn = document.getElementById('ashwiniFallbackStartBtn');
-    const topicPills = document.querySelectorAll('.ashwini-topic-pill');
+  function initAshwiniSideWidget() {
+    const sideWidget = document.getElementById('ashwiniSideWidget');
+    const minimizeBtn = document.getElementById('ashwiniMinimizeBtn');
+    const collapsedBtn = document.getElementById('ashwiniCollapsedBtn');
+    const startBtn = document.getElementById('ashwiniBoxStartBtn');
+    const topicChips = document.querySelectorAll('.ashwini-mini-chip');
 
-    // 1. Bubble dismiss persistence (session)
-    if (bubbleCloseBtn && greetingBubble) {
-      if (sessionStorage.getItem('ashwini_bubble_dismissed') === '1') {
-        greetingBubble.classList.add('dismissed');
-      }
-      bubbleCloseBtn.addEventListener('click', function (e) {
+    if (!sideWidget) return;
+
+    // 1. Restore minimized state preference from sessionStorage
+    if (sessionStorage.getItem('ashwini_side_minimized') === '1') {
+      sideWidget.classList.add('minimized');
+    }
+
+    // 2. Minimize & Restore Handlers
+    if (minimizeBtn) {
+      minimizeBtn.addEventListener('click', function (e) {
         e.stopPropagation();
-        greetingBubble.classList.add('dismissed');
-        sessionStorage.setItem('ashwini_bubble_dismissed', '1');
+        sideWidget.classList.add('minimized');
+        sessionStorage.setItem('ashwini_side_minimized', '1');
       });
     }
 
-    // 2. Open / Close Modal
-    function openModal() {
-      if (!modalBackdrop) return;
-      modalBackdrop.classList.add('active');
-      document.body.style.overflow = 'hidden';
-
-      // Auto-trigger Dograh start if ready and idle
-      checkAndPromptDograh();
-    }
-
-    function closeModal() {
-      if (!modalBackdrop) return;
-      modalBackdrop.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    if (triggerBtn) {
-      triggerBtn.addEventListener('click', openModal);
-    }
-
-    if (modalCloseBtn) {
-      modalCloseBtn.addEventListener('click', closeModal);
-    }
-
-    if (modalBackdrop) {
-      modalBackdrop.addEventListener('click', function (e) {
-        if (e.target === modalBackdrop) {
-          closeModal();
-        }
+    if (collapsedBtn) {
+      collapsedBtn.addEventListener('click', function () {
+        sideWidget.classList.remove('minimized');
+        sessionStorage.setItem('ashwini_side_minimized', '0');
       });
     }
-
-    // Escape key closes modal
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modalBackdrop && modalBackdrop.classList.contains('active')) {
-        closeModal();
-      }
-    });
 
     // 3. Connect to Dograh Voice Widget
     function startDograhVoice() {
@@ -86,12 +56,12 @@
           console.warn('Dograh start error:', err);
         }
       } else {
-        console.info('Dograh widget is connecting...');
+        console.info('Connecting to Ashwini voice agent...');
       }
     }
 
-    if (fallbackStartBtn) {
-      fallbackStartBtn.addEventListener('click', function () {
+    if (startBtn) {
+      startBtn.addEventListener('click', function () {
         startDograhVoice();
       });
     }
@@ -101,30 +71,25 @@
     if (container) {
       const observer = new MutationObserver(function () {
         const dograhBtn = container.querySelector('.dograh-inline-btn');
-        if (dograhBtn && fallbackStartBtn) {
-          fallbackStartBtn.style.display = 'none';
+        if (dograhBtn && startBtn) {
+          startBtn.style.display = 'none';
         }
       });
       observer.observe(container, { childList: true, subtree: true });
     }
 
-    function checkAndPromptDograh() {
-      // Optional: sync Dograh inline UI if present
-      if (window.DograhWidget && typeof window.DograhWidget.refresh === 'function') {
-        try {
-          window.DograhWidget.refresh();
-        } catch (e) {}
-      }
-    }
-
     // 4. Topic Suggestions
-    topicPills.forEach(function (pill) {
-      pill.addEventListener('click', function () {
+    topicChips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
         startDograhVoice();
       });
     });
 
-    // 5. Expose global helper for any CTA buttons on the site
-    window.openAshwiniAssistant = openModal;
+    // 5. Global helper for opening/maximizing Ashwini widget from any CTA on page
+    window.openAshwiniAssistant = function () {
+      sideWidget.classList.remove('minimized');
+      sessionStorage.setItem('ashwini_side_minimized', '0');
+      startDograhVoice();
+    };
   }
 })();
