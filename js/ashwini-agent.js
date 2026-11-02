@@ -1,19 +1,18 @@
 /**
- * Ashwini AI Voice Assistant - Small Box In-Place Controller
+ * Ashwini AI Voice Assistant - Clean Square Box Controller
  * Amruta Makeover Beauty Salon
  * 
  * Features:
- * 1. Compact corner box (290px x 128px - Not portrait!)
- * 2. Clean professional UI: Zero emojis, single language mention
- * 3. Bulletproof Web Audio & WebRTC audio pipeline (AudioContext + HTML5 Audio)
- * 4. Dograh WebRTC API integration (start, end, onCallStart, onCallEnd)
- * 5. Microphone mute/unmute and live call duration timer
+ * 1. Clean Square Box (260px x 260px) docked at Bottom-Left
+ * 2. Zero emojis, single language mention (Hindi | Marathi | English)
+ * 3. Bulletproof WebRTC Audio Pipeline (AudioContext + HTML5 Audio)
+ * 4. Dograh Widget API Integration (start, end, onCallStart, onCallEnd)
+ * 5. Microphone Mute/Unmute and Call Timer
  */
 
 (function () {
   'use strict';
 
-  // State
   const state = {
     isCalling: false,
     isConnected: false,
@@ -30,7 +29,7 @@
   // -------------------------------------------------------------------------
 
   function setupAudioEngine() {
-    // A. Create permanent audio element on document.body (never removed from DOM)
+    // A. Permanent audio element on document.body (never removed from DOM)
     if (!state.voiceAudio) {
       let audio = document.getElementById('ashwini-voice-audio');
       if (!audio) {
@@ -40,7 +39,7 @@
         audio.playsInline = true;
         audio.muted = false;
         audio.volume = 1.0;
-        // Visible to browser compositor so background/battery throttling never suspends it
+        // Visible to browser compositor so background/power throttling never suspends it
         audio.style.cssText = 'position:fixed;bottom:-200px;left:-200px;width:10px;height:10px;opacity:0.01;pointer-events:none;z-index:-1;';
         document.body.appendChild(audio);
       }
@@ -186,14 +185,13 @@
       }
     }, 200);
 
-    // Stop polling after 1 hour
     setTimeout(function () {
       clearInterval(pollInterval);
     }, 3600000);
   }
 
   // -------------------------------------------------------------------------
-  // 2. UI Controllers & State Transitions (Small In-Place Box)
+  // 2. UI Controllers & State Transitions (Square Box)
   // -------------------------------------------------------------------------
 
   document.addEventListener('DOMContentLoaded', initAshwiniWidget);
@@ -203,16 +201,15 @@
     monitorDograh();
 
     // DOM Elements
-    const idleCard = document.getElementById('ashwiniIdleCard');
-    const activeCard = document.getElementById('ashwiniActiveCard');
+    const idleGroup = document.getElementById('ashwiniIdleGroup');
+    const activeGroup = document.getElementById('ashwiniActiveGroup');
     const startBtn = document.getElementById('ashwiniStartCallBtn');
     const endBtn = document.getElementById('ashwiniEndCallBtn');
     const muteBtn = document.getElementById('ashwiniMuteBtn');
     const timerDisplay = document.getElementById('ashwiniCallTimer');
     const headingDisplay = document.getElementById('ashwiniActiveHeading');
-    const listeningTag = document.getElementById('ashwiniListeningTag');
 
-    if (!idleCard || !activeCard || !startBtn) return;
+    if (!idleGroup || !activeGroup || !startBtn) return;
 
     // --- Start Call Action ---
     function startCall() {
@@ -222,13 +219,12 @@
       state.audioWired = false;
       state.callSeconds = 0;
 
-      // In-place switch: Hide idle card, show active card (exact same small size!)
-      idleCard.style.display = 'none';
-      activeCard.style.display = 'flex';
+      // In-place switch: Hide idle group, show active group inside square box
+      idleGroup.style.display = 'none';
+      activeGroup.style.display = 'flex';
 
       if (headingDisplay) headingDisplay.textContent = 'Connecting...';
       if (timerDisplay) timerDisplay.textContent = '00:00';
-      if (listeningTag) listeningTag.textContent = 'Connecting...';
 
       // Provide context to Dograh
       if (window.DograhWidget && typeof window.DograhWidget.setContext === 'function') {
@@ -251,7 +247,6 @@
         window.DograhWidget.start().catch(function (err) {
           console.warn('Dograh start error:', err);
           if (headingDisplay) headingDisplay.textContent = 'Connection Error';
-          if (listeningTag) listeningTag.textContent = 'Tap to retry';
           setTimeout(handleCallEnded, 3000);
         });
       }
@@ -266,7 +261,6 @@
     function handleCallConnected() {
       state.isConnected = true;
       if (headingDisplay) headingDisplay.textContent = 'Call in progress';
-      if (listeningTag) listeningTag.textContent = 'Listening...';
 
       // Start call timer
       clearInterval(state.timerInterval);
@@ -287,7 +281,6 @@
     // --- Failed State ---
     function handleCallFailed() {
       if (headingDisplay) headingDisplay.textContent = 'Call Failed';
-      if (listeningTag) listeningTag.textContent = 'Check microphone';
       setTimeout(handleCallEnded, 3000);
     }
 
@@ -314,9 +307,9 @@
         state.voiceAudio.srcObject = null;
       }
 
-      // In-place switch back to idle card
-      activeCard.style.display = 'none';
-      idleCard.style.display = 'flex';
+      // In-place switch back to idle view
+      activeGroup.style.display = 'none';
+      idleGroup.style.display = 'flex';
       if (timerDisplay) timerDisplay.textContent = '00:00';
     }
 
