@@ -1,85 +1,79 @@
 /* ==========================================================================
-   Ashwini AI Assistant - Professional Side Box (Web Screen Only)
+   Ashwini AI Voice Assistant - Compact Corner Card (Small Size, Not Portrait)
    Amruta Makeover Beauty Salon
-   Theme: Champagne Gold & Royal Burgundy
-   Position: Bottom-Left (Opposite WhatsApp)
+   Theme: Luxury Champagne Gold & Royal Burgundy Glass
+   Position: Bottom-Left (Opposite WhatsApp on Bottom-Right)
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. Visibility: Web Screen Only (Hidden on Mobile)
+   1. Master Widget Container (Fixed at Bottom-Left)
    -------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  .ashwini-side-widget {
-    display: none !important;
-  }
-}
-
-/* --------------------------------------------------------------------------
-   2. Side Widget Container (Bottom-Left Side)
-   -------------------------------------------------------------------------- */
-.ashwini-side-widget {
+.ashwini-widget-wrapper {
   position: fixed;
   bottom: 24px;
   left: 24px;
   right: auto;
   z-index: 998;
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   color: #FFF4E8;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* --------------------------------------------------------------------------
-   3. Medium-Sized Side Card
+   2. Small Compact Card (Width 290px, Height ~128px - Not Portrait!)
    -------------------------------------------------------------------------- */
-.ashwini-side-box {
-  width: 318px;
-  max-width: calc(100vw - 48px);
-  background: linear-gradient(160deg, #241815 0%, #1A1210 100%);
+.ashwini-small-card {
+  width: 290px;
+  min-height: 124px;
+  background: linear-gradient(135deg, rgba(32, 20, 18, 0.94) 0%, rgba(18, 11, 9, 0.98) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1.5px solid rgba(200, 165, 107, 0.45);
   border-radius: 18px;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 24px rgba(200, 165, 107, 0.14);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.65), 0 0 20px rgba(200, 165, 107, 0.16);
+  padding: 12px 14px;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
   overflow: hidden;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  transform-origin: bottom left;
-  animation: ashwiniBoxEntrance 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes ashwiniBoxEntrance {
-  0% { opacity: 0; transform: translateY(16px) scale(0.94); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
+/* Subtle gold shimmer line */
+.ashwini-small-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #E0BF83, transparent);
+  animation: ashwiniTopShimmer 6s infinite ease-in-out;
 }
 
-/* When minimized, hide card and reveal collapsed pill */
-.ashwini-side-widget.minimized .ashwini-side-box {
-  display: none;
-}
-
-.ashwini-side-widget:not(.minimized) .ashwini-side-collapsed-btn {
-  display: none;
+@keyframes ashwiniTopShimmer {
+  0% { left: -60%; }
+  30%, 100% { left: 140%; }
 }
 
 /* --------------------------------------------------------------------------
-   4. Card Header
+   3. Idle State Content
    -------------------------------------------------------------------------- */
-.ashwini-box-header {
-  padding: 11px 14px;
-  background: rgba(36, 24, 21, 0.95);
-  border-bottom: 1px solid rgba(200, 165, 107, 0.22);
+.ashwini-idle-card {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
 }
 
-.ashwini-box-profile {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.ashwini-card-left {
+  flex-shrink: 0;
 }
 
 .ashwini-avatar-wrap {
   position: relative;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   flex-shrink: 0;
 }
 
@@ -95,8 +89,8 @@
 
 .ashwini-status-dot {
   position: absolute;
-  bottom: 0px;
-  right: 0px;
+  bottom: 0;
+  right: 0;
   width: 10px;
   height: 10px;
   background: #25D366;
@@ -105,393 +99,233 @@
   box-shadow: 0 0 6px rgba(37, 211, 102, 0.9);
 }
 
-.ashwini-box-title-wrap {
+.ashwini-card-body {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
+  gap: 3px;
 }
 
-.ashwini-box-name {
+.ashwini-card-title {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   font-weight: 700;
   color: #FFF4E8;
-  margin: 0;
   line-height: 1.2;
-  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
-.ashwini-box-role {
-  font-size: 0.70rem;
+.ashwini-card-langs {
+  font-size: 0.72rem;
   color: #C8A56B;
   font-weight: 500;
   letter-spacing: 0.02em;
-  margin-top: 1px;
+  line-height: 1.2;
 }
 
-.ashwini-box-controls {
-  display: flex;
-  align-items: center;
-}
-
-.ashwini-minimize-btn {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(200, 165, 107, 0.25);
-  color: #BFAFA2;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1.1rem;
-  line-height: 1;
-  transition: all 0.2s ease;
-}
-
-.ashwini-minimize-btn:hover {
-  background: rgba(200, 165, 107, 0.22);
-  color: #FFF4E8;
-  border-color: #E0BF83;
-}
-
-/* --------------------------------------------------------------------------
-   5. Card Body
-   -------------------------------------------------------------------------- */
-.ashwini-box-body {
-  padding: 13px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-}
-
-.ashwini-box-greeting {
-  background: radial-gradient(circle at top center, rgba(200, 165, 107, 0.12) 0%, rgba(36, 24, 21, 0.35) 100%);
-  border: 1px solid rgba(200, 165, 107, 0.22);
-  border-radius: 12px;
-  padding: 10px 12px;
-  text-align: center;
-}
-
-.ashwini-greeting-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  margin-bottom: 4px;
-}
-
-.ashwini-sparkle {
-  font-size: 0.85rem;
-}
-
-.ashwini-greeting-heading {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: #E0BF83;
-  margin: 0;
-  letter-spacing: 0.01em;
-}
-
-.ashwini-box-langs {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  margin: 5px 0;
-}
-
-.ashwini-lang-chip {
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: #FFF4E8;
-  background: rgba(200, 165, 107, 0.18);
-  border: 1px solid rgba(200, 165, 107, 0.35);
-  padding: 2px 7px;
-  border-radius: 4px;
-  letter-spacing: 0.02em;
-}
-
-.ashwini-lang-sep {
-  color: rgba(200, 165, 107, 0.45);
-  font-size: 0.65rem;
-}
-
-.ashwini-box-desc {
-  font-size: 0.74rem;
-  color: #E4D2BE;
-  line-height: 1.35;
-  margin: 0;
-}
-
-/* --------------------------------------------------------------------------
-   6. Dograh Inline Container & Styling in Small Box
-   -------------------------------------------------------------------------- */
-.dograh-inline-container {
-  min-height: auto !important;
-  padding: 4px 0 !important;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.dograh-inline-status {
-  text-align: center;
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif !important;
-  width: 100%;
-}
-
-.dograh-inline-status-icon {
-  width: 44px !important;
-  height: 44px !important;
-  margin: 0 auto 8px !important;
-  color: #C8A56B !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(200, 165, 107, 0.12);
-  border: 1px solid rgba(200, 165, 107, 0.3);
-  border-radius: 50%;
-  box-shadow: 0 0 14px rgba(200, 165, 107, 0.2);
-}
-
-.dograh-inline-status-icon svg {
-  width: 22px !important;
-  height: 22px !important;
-  stroke: #E0BF83 !important;
-}
-
-.dograh-inline-status-text {
-  font-family: 'Playfair Display', Georgia, serif !important;
-  font-size: 0.95rem !important;
-  font-weight: 700 !important;
-  color: #FFF4E8 !important;
-  margin: 0 0 3px !important;
-}
-
-.dograh-inline-status-subtext {
-  font-size: 0.75rem !important;
-  color: #E4D2BE !important;
-  margin: 0 0 10px !important;
-}
-
-.dograh-inline-button-container {
-  display: flex;
-  justify-content: center;
-}
-
-.dograh-inline-btn {
-  padding: 9px 24px !important;
-  border-radius: 9999px !important;
-  font-size: 0.88rem !important;
-  font-weight: 700 !important;
-  cursor: pointer !important;
-  transition: all 0.25s ease !important;
-  border: none !important;
-  font-family: 'Outfit', sans-serif !important;
-}
-
-.dograh-inline-btn-start {
-  background: linear-gradient(135deg, #E0BF83 0%, #C8A56B 50%, #A88345 100%) !important;
-  color: #1A1210 !important;
-  box-shadow: 0 6px 18px rgba(200, 165, 107, 0.35) !important;
-}
-
-.dograh-inline-btn-start:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.08);
-  box-shadow: 0 8px 22px rgba(200, 165, 107, 0.5) !important;
-  color: #1A1210 !important;
-}
-
-.dograh-inline-btn-end {
-  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%) !important;
-  color: #ffffff !important;
-  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.35) !important;
-}
-
-.dograh-inline-btn-end:hover {
-  transform: translateY(-2px);
-  color: #ffffff !important;
-}
-
-/* Fallback / Trigger Button inside Medium Box */
-.ashwini-voice-call-btn {
-  width: 100%;
-  padding: 10px 18px;
-  background: linear-gradient(135deg, #E0BF83 0%, #C8A56B 50%, #A88345 100%);
-  color: #1A1210;
-  border: none;
-  border-radius: 9999px;
-  font-size: 0.88rem;
-  font-weight: 700;
-  cursor: pointer;
+.ashwini-start-call-btn {
+  margin-top: 5px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  box-shadow: 0 6px 20px rgba(200, 165, 107, 0.3);
-  transition: all 0.25s ease;
-  font-family: 'Outfit', sans-serif;
-}
-
-.ashwini-voice-call-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(200, 165, 107, 0.45);
-  filter: brightness(1.06);
-}
-
-/* Quick Topic Pills */
-.ashwini-quick-topics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  justify-content: center;
-}
-
-.ashwini-mini-chip {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(200, 165, 107, 0.22);
-  color: #E4D2BE;
-  padding: 4px 9px;
-  border-radius: 999px;
-  font-size: 0.72rem;
+  gap: 7px;
+  height: 32px;
+  padding: 0 14px;
+  background: linear-gradient(135deg, #E0BF83 0%, #C8A56B 100%);
+  border: none;
+  border-radius: 9999px;
+  color: #1A1210;
+  font-size: 0.82rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 10px rgba(200, 165, 107, 0.35);
+}
+
+.ashwini-start-call-btn:hover {
+  background: linear-gradient(135deg, #F3D9A4 0%, #D4AF37 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(200, 165, 107, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   4. Active State Content (Same Size Box, In-Place!)
+   -------------------------------------------------------------------------- */
+.ashwini-active-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ashwini-active-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ashwini-pulse-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid #C8A56B;
+  animation: ashwiniPulseRing 1.8s infinite ease-out;
+  pointer-events: none;
+}
+
+@keyframes ashwiniPulseRing {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.ashwini-active-status-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.ashwini-active-heading {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFF4E8;
+  line-height: 1.2;
+}
+
+.ashwini-active-meta {
+  font-size: 0.72rem;
+  color: #C8A56B;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ashwini-timer {
+  font-family: monospace;
+  font-weight: 600;
+  color: #E0BF83;
+}
+
+.ashwini-active-sep {
+  opacity: 0.5;
+}
+
+.ashwini-listening-tag {
+  color: #E4D2BE;
+}
+
+/* Mini soundwave dancing bars */
+.ashwini-soundwave-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.ashwini-wave-bar {
+  width: 2.5px;
+  background: #E0BF83;
+  border-radius: 2px;
+  animation: miniWaveBeat 1.2s infinite ease-in-out;
+}
+
+.ashwini-wave-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+.ashwini-wave-bar:nth-child(2) { height: 14px; animation-delay: 0.25s; }
+.ashwini-wave-bar:nth-child(3) { height: 9px; animation-delay: 0.4s; }
+.ashwini-wave-bar:nth-child(4) { height: 12px; animation-delay: 0.15s; }
+
+@keyframes miniWaveBeat {
+  0%, 100% { transform: scaleY(0.35); opacity: 0.5; }
+  50% { transform: scaleY(1); opacity: 1; }
+}
+
+.ashwini-active-bottom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ashwini-end-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border: none;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(239, 68, 68, 0.4);
   transition: all 0.2s ease;
 }
 
-.ashwini-mini-chip:hover {
-  background: rgba(200, 165, 107, 0.18);
-  border-color: #E0BF83;
-  color: #FFF4E8;
+.ashwini-end-btn:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
   transform: translateY(-1px);
 }
 
-/* Card Footer */
-.ashwini-box-footer {
-  padding: 8px 14px;
-  background: rgba(26, 18, 16, 0.95);
-  border-top: 1px solid rgba(200, 165, 107, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.72rem;
-  color: #BFAFA2;
-}
-
-.ashwini-footer-tech {
-  letter-spacing: 0.02em;
-}
-
-.ashwini-footer-wa {
-  color: #25D366;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.ashwini-footer-wa:hover {
-  text-decoration: underline;
-}
-
-/* --------------------------------------------------------------------------
-   7. Minimized Floating Pill Button (When Card is Minimized)
-   -------------------------------------------------------------------------- */
-.ashwini-side-collapsed-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(135deg, #1A1210 0%, #2A1C18 50%, #38241F 100%);
+.ashwini-mute-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(200, 165, 107, 0.3);
   color: #FFF4E8;
-  border: 1.5px solid rgba(200, 165, 107, 0.6);
-  border-radius: 9999px;
-  padding: 6px 14px 6px 8px;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 18px rgba(200, 165, 107, 0.2);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  animation: ashwiniMiniPulse 3.5s infinite ease-in-out;
-  font-family: 'Outfit', sans-serif;
-  text-align: left;
-}
-
-.ashwini-side-collapsed-btn:hover {
-  background: linear-gradient(135deg, #241815 0%, #3A2620 50%, #462D26 100%);
-  border-color: #E0BF83;
-  transform: translateY(-2px) scale(1.03);
-}
-
-.ashwini-mini-avatar-wrap {
-  position: relative;
-  width: 36px;
-  height: 36px;
-  flex-shrink: 0;
-}
-
-.ashwini-mini-avatar {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1.5px solid #C8A56B;
-}
-
-.ashwini-mini-pulse {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 9px;
-  height: 9px;
-  background: #25D366;
-  border: 1.5px solid #1A1210;
-  border-radius: 50%;
-  box-shadow: 0 0 6px rgba(37, 211, 102, 0.8);
-}
-
-.ashwini-mini-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.ashwini-mini-title {
-  font-weight: 700;
-  font-size: 0.86rem;
-  color: #FFF4E8;
-  line-height: 1.2;
-}
-
-.ashwini-mini-sub {
-  font-size: 0.68rem;
-  color: #C8A56B;
-  font-weight: 500;
-}
-
-.ashwini-mini-mic {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #E0BF83 0%, #C8A56B 100%);
-  color: #1A1210;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
   flex-shrink: 0;
 }
 
-@keyframes ashwiniMiniPulse {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+.ashwini-mute-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #E0BF83;
+}
+
+.ashwini-mute-btn.is-muted {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #ef4444;
 }
 
 /* --------------------------------------------------------------------------
-   8. Dograh Root Safe Alignment
+   5. Mobile Responsiveness
    -------------------------------------------------------------------------- */
-#dograh-widget-root,
-.dograh-widget-container {
-  left: 24px !important;
-  right: auto !important;
-  bottom: 24px !important;
-  z-index: 998 !important;
+@media (max-width: 768px) {
+  .ashwini-widget-wrapper {
+    bottom: 18px;
+    left: 16px;
+  }
+
+  .ashwini-small-card {
+    width: 270px;
+    min-height: 120px;
+    padding: 10px 12px;
+  }
+
+  .ashwini-avatar-wrap {
+    width: 40px;
+    height: 40px;
+  }
+
+  .ashwini-card-title {
+    font-size: 0.88rem;
+  }
+
+  .ashwini-card-langs {
+    font-size: 0.68rem;
+  }
+
+  .ashwini-start-call-btn,
+  .ashwini-end-btn {
+    height: 30px;
+    font-size: 0.78rem;
+  }
 }

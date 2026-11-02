@@ -22,7 +22,7 @@
 
   <!-- Google Fonts & Stylesheet -->
   <link rel="stylesheet" href="css/styles.css?v=3.4">
-  <link rel="stylesheet" href="css/ashwini-agent.css?v=1.0">
+  <link rel="stylesheet" href="css/ashwini-agent.css?v=1.2">
 
   <script>
     // Global Mobile Drawer Controller
@@ -1288,13 +1288,13 @@
       <!-- Tab Navigation -->
       <div class="admin-nav-tabs" style="display: flex; gap: 8px; border-bottom: 2px solid var(--c-border); margin-bottom: 20px; overflow-x: auto;">
         <button type="button" class="admin-tab-btn active" data-tab="enquiries" style="padding: 10px 18px; border: none; background: none; font-weight: 600; cursor: pointer; border-bottom: 3px solid var(--c-gold); color: var(--c-gold-dark); font-size: 0.95rem; white-space: nowrap;">
-          💬 Customer Enquiries &amp; Messages
+          Customer Enquiries &amp; Messages
         </button>
         <button type="button" class="admin-tab-btn" data-tab="appointments" style="padding: 10px 18px; border: none; background: none; font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; color: var(--c-text-muted); font-size: 0.95rem; white-space: nowrap;">
-          📅 Appointment Requests
+          Appointment Requests
         </button>
         <button type="button" class="admin-tab-btn" data-tab="services" style="padding: 10px 18px; border: none; background: none; font-weight: 600; cursor: pointer; border-bottom: 3px solid transparent; color: var(--c-text-muted); font-size: 0.95rem; white-space: nowrap;">
-          💰 Service Pricing Manager
+          Service Pricing Manager
         </button>
       </div>
 
@@ -1419,107 +1419,80 @@
       </div>
     </div>
   </dialog>
-  <!-- Ashwini AI Assistant - Side Floating Box (Web Screen Only, Opposite WhatsApp) -->
-  <aside class="ashwini-side-widget" id="ashwiniSideWidget" aria-label="Ashwini AI Voice Assistant">
-    <!-- Collapsed Floating Pill/Button (when minimized) -->
-    <button type="button" class="ashwini-side-collapsed-btn" id="ashwiniCollapsedBtn" aria-label="Open Ashwini AI Assistant">
-      <div class="ashwini-mini-avatar-wrap">
-        <img src="assets/images/ashwini-avatar.jpg" alt="Ashwini AI Assistant" class="ashwini-mini-avatar">
-        <span class="ashwini-mini-pulse"></span>
-      </div>
-      <div class="ashwini-mini-text">
-        <span class="ashwini-mini-title">Ashwini AI</span>
-        <span class="ashwini-mini-sub">Speak with Ashwini</span>
-      </div>
-      <div class="ashwini-mini-mic" aria-hidden="true">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-        </svg>
-      </div>
-    </button>
-
-    <!-- Medium-Sized Side Card -->
-    <div class="ashwini-side-box" id="ashwiniSideCard">
-      <!-- Card Header -->
-      <div class="ashwini-box-header">
-        <div class="ashwini-box-profile">
-          <div class="ashwini-avatar-wrap">
-            <img src="assets/images/ashwini-avatar.jpg" alt="Ashwini AI Assistant" class="ashwini-avatar-img">
-            <span class="ashwini-status-dot" title="Online"></span>
-          </div>
-          <div class="ashwini-box-title-wrap">
-            <h3 class="ashwini-box-name">Ashwini AI Assistant</h3>
-            <span class="ashwini-box-role">Salon Receptionist &bull; Voice</span>
-          </div>
-        </div>
-        <div class="ashwini-box-controls">
-          <button type="button" class="ashwini-minimize-btn" id="ashwiniMinimizeBtn" aria-label="Minimize Ashwini Assistant" title="Minimize">&minus;</button>
+  <!-- Ashwini AI Voice Assistant - Compact Corner Card (Small Size, Opposite WhatsApp on Bottom-Left) -->
+  <aside class="ashwini-widget-wrapper" id="ashwiniWidgetWrapper" aria-label="Ashwini AI Voice Assistant">
+    
+    <!-- State 1: Idle Small Box -->
+    <div class="ashwini-small-card ashwini-idle-card" id="ashwiniIdleCard" role="region" aria-label="Ashwini AI Voice Assistant">
+      <div class="ashwini-card-left">
+        <div class="ashwini-avatar-wrap">
+          <img src="assets/images/ashwini-avatar.jpg" alt="Ashwini AI" class="ashwini-avatar-img">
+          <span class="ashwini-status-dot"></span>
         </div>
       </div>
-
-      <!-- Card Body -->
-      <div class="ashwini-box-body">
-        <div class="ashwini-box-greeting">
-          <div class="ashwini-greeting-row">
-            <span class="ashwini-sparkle">✨</span>
-            <h4 class="ashwini-greeting-heading">Speak with Ashwini</h4>
-          </div>
-          <div class="ashwini-box-langs">
-            <span class="ashwini-lang-chip">Hindi</span>
-            <span class="ashwini-lang-sep">•</span>
-            <span class="ashwini-lang-chip">English</span>
-            <span class="ashwini-lang-sep">•</span>
-            <span class="ashwini-lang-chip">Marathi</span>
-          </div>
-          <p class="ashwini-box-desc">Speak in Hindi, English, or Marathi for bridal packages, hair styling &amp; bookings.</p>
-        </div>
-
-        <!-- Dograh Voice Connector Container -->
-        <div id="dograh-inline-container" class="dograh-inline-container">
-          <div class="dograh-inline-status">
-            <div class="dograh-inline-status-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
-                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-                <line x1="12" y1="19" x2="12" y2="22"></line>
-              </svg>
-            </div>
-            <p class="dograh-inline-status-text">Ready to Connect</p>
-            <p class="dograh-inline-status-subtext">Click below to start 2-way voice conversation</p>
-            <div class="dograh-inline-button-container">
-              <button type="button" class="ashwini-voice-call-btn" id="ashwiniBoxStartBtn">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-                  <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-                </svg>
-                <span>Tap to Speak</span>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Quick Topic Chips -->
-        <div class="ashwini-quick-topics">
-          <button type="button" class="ashwini-mini-chip">Bridal Packages</button>
-          <button type="button" class="ashwini-mini-chip">HydraFacials</button>
-          <button type="button" class="ashwini-mini-chip">Hair Botox</button>
-          <button type="button" class="ashwini-mini-chip">Book Slot</button>
-        </div>
-      </div>
-
-      <!-- Card Footer -->
-      <div class="ashwini-box-footer">
-        <span class="ashwini-footer-tech">⚡ 2-Way Voice AI</span>
-        <a href="https://wa.me/917387268299" target="_blank" rel="noopener noreferrer" class="ashwini-footer-wa">WhatsApp &rarr;</a>
+      <div class="ashwini-card-body">
+        <div class="ashwini-card-title">Ashwini AI Voice</div>
+        <div class="ashwini-card-langs">Hindi | Marathi | English</div>
+        <button type="button" class="ashwini-start-call-btn" id="ashwiniStartCallBtn" aria-label="Start Voice Call">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM12 3v10l3-3h6V3h-9z"/>
+          </svg>
+          <span>Start Call</span>
+        </button>
       </div>
     </div>
+
+    <!-- State 2: Active Small Box (Same size, in place, NOT portrait!) -->
+    <div class="ashwini-small-card ashwini-active-card" id="ashwiniActiveCard" style="display: none;" role="region" aria-label="Call in progress">
+      <div class="ashwini-active-top">
+        <div class="ashwini-avatar-wrap">
+          <img src="assets/images/ashwini-avatar.jpg" alt="Ashwini AI" class="ashwini-avatar-img">
+          <span class="ashwini-pulse-ring"></span>
+        </div>
+        <div class="ashwini-active-status-col">
+          <div class="ashwini-active-heading" id="ashwiniActiveHeading">Call in progress</div>
+          <div class="ashwini-active-meta">
+            <span class="ashwini-timer" id="ashwiniCallTimer">00:00</span>
+            <span class="ashwini-active-sep">|</span>
+            <span class="ashwini-listening-tag" id="ashwiniListeningTag">Listening...</span>
+          </div>
+        </div>
+        <div class="ashwini-soundwave-mini">
+          <span class="ashwini-wave-bar"></span>
+          <span class="ashwini-wave-bar"></span>
+          <span class="ashwini-wave-bar"></span>
+          <span class="ashwini-wave-bar"></span>
+        </div>
+      </div>
+
+      <div class="ashwini-active-bottom">
+        <button type="button" class="ashwini-end-btn" id="ashwiniEndCallBtn" aria-label="End Call">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08a.996.996 0 0 1 0-1.41C3.42 8.47 7.45 6.5 12 6.5s8.58 1.97 11.71 5.17c.39.39.39 1.02 0 1.41l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/>
+          </svg>
+          <span>End Call</span>
+        </button>
+
+        <button type="button" class="ashwini-mute-btn" id="ashwiniMuteBtn" aria-label="Mute Microphone" title="Mute Microphone">
+          <svg class="ashwini-mic-on" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+          </svg>
+          <svg class="ashwini-mic-off" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+            <path d="M19 11h-1.7c0 .74-.16 1.43-.43 2.05l1.23 1.23c.56-.98.9-2.09.9-3.28zm-4.02.17c0-.06.02-.11.02-.17V5c0-1.66-1.34-3-3-3S9 3.34 9 5v.18l5.98 5.99zM4.27 3L3 4.27l6.01 6.01V11c0 1.66 1.33 3 2.99 3 .22 0 .44-.03.65-.08l1.66 1.66c-.71.33-1.5.52-2.31.52-2.76 0-5.3-2.24-5.3-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c1.33-.19 2.53-.74 3.53-1.54l4.2 4.2 1.27-1.27L4.27 3z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Required Dograh inline container -->
+    <div id="dograh-inline-container" style="position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; overflow: hidden;"></div>
   </aside>
 
   <!-- JavaScript Modules -->
   <script src="js/config.js?v=3.4"></script>
   <script src="js/app.js?v=3.4"></script>
-  <script src="js/ashwini-agent.js?v=1.0"></script>
+  <script src="js/ashwini-agent.js?v=1.2"></script>
 
   <!-- Dograh Widget: Ashwini AI Assistant -->
   <script>
