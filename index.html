@@ -22,7 +22,7 @@
 
   <!-- Google Fonts & Stylesheet -->
   <link rel="stylesheet" href="css/styles.css?v=3.4">
-  <link rel="stylesheet" href="css/voice-agent.css?v=1.0">
+  <link rel="stylesheet" href="css/ashwini-agent.css?v=1.0">
 
   <script>
     // Global Mobile Drawer Controller
@@ -95,16 +95,43 @@
     <span>Chat with Amruta</span>
   </a>
 
-    <!-- Floating AI Voice Assistant Trigger -->
-  <button type="button" class="floating-voice-agent" id="floatingVoiceTrigger" aria-label="Open Amruta AI Voice Assistant">
-    <div class="voice-agent-pulse-icon">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-        <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-      </svg>
+  <!-- Floating Ashwini AI Voice Assistant (Opposite WhatsApp on Bottom Left) -->
+  <div class="floating-ashwini-wrap" id="ashwiniFloatingWrap">
+    <div class="ashwini-greeting-bubble" id="ashwiniGreetingBubble" role="status" aria-live="polite">
+      <div class="ashwini-bubble-header">
+        <div class="ashwini-greeting-title">
+          <span>✨</span> Speak with Ashwini
+        </div>
+        <button type="button" class="ashwini-bubble-close" id="ashwiniBubbleCloseBtn" aria-label="Dismiss greeting">&times;</button>
+      </div>
+      <div class="ashwini-greeting-langs">
+        <span class="ashwini-lang-tag">Hindi</span>
+        <span class="ashwini-lang-sep">|</span>
+        <span class="ashwini-lang-tag">English</span>
+        <span class="ashwini-lang-sep">|</span>
+        <span class="ashwini-lang-tag">Marathi</span>
+      </div>
+      <p class="ashwini-greeting-desc">Speak in Hindi, English, or Marathi</p>
     </div>
-    <span>Talk to Shreya (AI)</span>
-  </button>
+
+    <button type="button" class="floating-ashwini-btn" id="ashwiniTriggerBtn" aria-label="Speak with Ashwini AI Assistant">
+      <div class="ashwini-avatar-ring">
+        <img src="assets/images/ashwini-avatar.jpg" alt="Ashwini AI Assistant" class="ashwini-avatar-img">
+        <span class="ashwini-status-dot" title="Online"></span>
+      </div>
+      <div class="ashwini-btn-content">
+        <span class="ashwini-btn-name">Ashwini AI Assistant</span>
+        <span class="ashwini-btn-sub">Speak with Ashwini &bull; Voice</span>
+      </div>
+      <div class="ashwini-mic-pill" aria-hidden="true">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+      </div>
+    </button>
+  </div>
+
 
     <!-- Top Announcement Bar -->
   <div class="top-bar">
@@ -1430,53 +1457,75 @@
       </div>
     </div>
   </dialog>
-
-    <!-- Amruta AI Voice Assistant Modal -->
-  <div class="voice-modal-backdrop" id="voiceModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="voiceModalTitle">
-    <div class="voice-modal-container">
-      <div class="voice-modal-header">
-        <div class="voice-modal-title-wrap">
-          <img src="assets/images/owner/amruta-boarde.jpg" alt="Amruta Boarde" class="voice-modal-avatar">
+  <!-- Ashwini AI Assistant Voice Modal -->
+  <div class="ashwini-modal-backdrop" id="ashwiniModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="ashwiniModalTitle">
+    <div class="ashwini-modal-container">
+      <div class="ashwini-modal-header">
+        <div class="ashwini-modal-profile">
+          <div class="ashwini-modal-avatar-wrap">
+            <img src="assets/images/ashwini-avatar.jpg" alt="Ashwini AI Assistant" class="ashwini-modal-avatar">
+            <span class="ashwini-status-dot" title="Online"></span>
+          </div>
           <div>
-            <h3 class="voice-modal-title" id="voiceModalTitle">Shreya | Receptionist</h3>
-            <span class="voice-modal-subtitle">Amruta Makeover Beauty Salon</span>
-            <span class="voice-lang-badge" id="voiceLangBadge">Hinglish / मराठी</span>
+            <h3 class="ashwini-modal-title" id="ashwiniModalTitle">Ashwini AI Assistant</h3>
+            <span class="ashwini-modal-subtitle">Salon Receptionist &bull; Amruta Makeover</span>
           </div>
         </div>
-        <button type="button" class="voice-modal-close-btn" id="voiceModalCloseBtn" aria-label="Close voice assistant">&times;</button>
+        <button type="button" class="ashwini-modal-close-btn" id="ashwiniModalCloseBtn" aria-label="Close voice assistant">&times;</button>
       </div>
 
-      <div class="voice-visualizer-section">
-        <button type="button" class="voice-orb-button" id="voiceOrbBtn" aria-label="Tap to speak">
-          <div class="voice-wave-ring voice-wave-ring-1"></div>
-          <div class="voice-wave-ring voice-wave-ring-2"></div>
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-          </svg>
-        </button>
-        <div class="voice-status-text" id="voiceStatusText">Tap microphone to start 2-way conversation</div>
-        <div class="voice-interrupt-tip">⚡ Natural 2-way chat &bull; Tap orb or speak to interrupt</div>
+      <div class="ashwini-modal-body">
+        <div class="ashwini-greeting-card-inner">
+          <div class="ashwini-welcome-heading">Speak with Ashwini</div>
+          <div class="ashwini-modal-langs">
+            <span class="ashwini-modal-lang-chip">हिन्दी (Hindi)</span>
+            <span class="ashwini-modal-lang-chip">English</span>
+            <span class="ashwini-modal-lang-chip">मराठी (Marathi)</span>
+          </div>
+          <p class="ashwini-welcome-desc">
+            You can speak with Ashwini in any of these 3 languages. Ask about bridal makeup packages, HydraFacials, hair botox, salon pricing, or book an appointment.
+          </p>
+        </div>
+
+        <!-- Dograh Voice Connector Container -->
+        <div id="dograh-inline-container" class="dograh-inline-container">
+          <div class="dograh-inline-status">
+            <div class="dograh-inline-status-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="22"></line>
+              </svg>
+            </div>
+            <p class="dograh-inline-status-text">Ready to Connect</p>
+            <p class="dograh-inline-status-subtext">Click below to start 2-way voice conversation</p>
+            <div class="dograh-inline-button-container">
+              <button type="button" class="ashwini-fallback-start-btn" id="ashwiniFallbackStartBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                  <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                </svg>
+                <span>Talk to Ashwini</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ashwini-topic-section">
+          <span class="ashwini-topic-label">Quick Inquiries:</span>
+          <div class="ashwini-topic-pills">
+            <button type="button" class="ashwini-topic-pill">Bridal Packages</button>
+            <button type="button" class="ashwini-topic-pill">HydraFacial Rates</button>
+            <button type="button" class="ashwini-topic-pill">Hair Botox &amp; Spa</button>
+            <button type="button" class="ashwini-topic-pill">Salon Location</button>
+            <button type="button" class="ashwini-topic-pill">Book Appointment</button>
+          </div>
+        </div>
       </div>
 
-      <div class="voice-quick-topics">
-        <button type="button" class="voice-quick-pill" data-query="What are the HydraFacial rates?">HydraFacials</button>
-        <button type="button" class="voice-quick-pill" data-query="Tell me about bridal makeup packages">Bridal Packages</button>
-        <button type="button" class="voice-quick-pill" data-query="What are your haircut prices?">Haircut &amp; Styling</button>
-        <button type="button" class="voice-quick-pill" data-query="Hair Botox and Hair Spa treatments">Botox &amp; Spa</button>
-        <button type="button" class="voice-quick-pill" data-query="Where is your salon located?">Location &amp; Timings</button>
-        <button type="button" class="voice-quick-pill" data-query="I want to book an appointment">Book Appointment</button>
-      </div>
-
-      <div class="voice-transcript-body" id="voiceTranscriptBody"></div>
-
-      <div class="voice-input-bar">
-        <input type="text" class="voice-text-input" id="voiceTextInput" placeholder="Ask a question or type to talk..." aria-label="Type message">
-        <button type="button" class="voice-send-btn" id="voiceSendBtn" aria-label="Send message">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-          </svg>
-        </button>
+      <div class="ashwini-modal-footer">
+        <span>⚡ Natural 2-way AI voice</span>
+        <a href="https://wa.me/917387268299" target="_blank" rel="noopener noreferrer">Prefer WhatsApp? Chat &rarr;</a>
       </div>
     </div>
   </div>
@@ -1484,6 +1533,22 @@
   <!-- JavaScript Modules -->
   <script src="js/config.js?v=3.4"></script>
   <script src="js/app.js?v=3.4"></script>
-  <script src="js/voice-agent.js?v=1.0"></script>
+  <script src="js/ashwini-agent.js?v=1.0"></script>
+
+  <!-- Dograh Widget: Ashwini AI Assistant -->
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://app.dograh.com/embed/dograh-widget.js?token=emb_SxWapiSuOTStiNBkQt24PsDYyF67jButBfouItjEZa4&environment=production&apiEndpoint=https://api.dograh.com';
+      js.setAttribute('data-dograh-context', JSON.stringify({
+        page_url: window.location.href,
+        today: new Date().toISOString().slice(0, 10)
+      }));
+      js.async = true;
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'dograh-widget'));
+  </script>
 </body>
 </html>

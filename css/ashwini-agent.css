@@ -1,0 +1,658 @@
+/* ==========================================================================
+   Ashwini AI Assistant - Luxury Styling
+   Amruta Makeover Beauty Salon
+   Theme: Champagne Gold & Royal Burgundy
+   Position: Bottom-Left (Opposite WhatsApp)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Floating Ashwini Trigger & Greeting Bubble (Opposite WhatsApp)
+   -------------------------------------------------------------------------- */
+.floating-ashwini-wrap {
+  position: fixed;
+  bottom: 26px;
+  left: 26px;
+  right: auto;
+  z-index: 990;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  pointer-events: none; /* children enable pointer events */
+}
+
+/* Greeting Bubble Above Widget */
+.ashwini-greeting-bubble {
+  pointer-events: auto;
+  position: relative;
+  background: linear-gradient(135deg, rgba(36, 24, 21, 0.96) 0%, rgba(26, 18, 16, 0.98) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(200, 165, 107, 0.45);
+  border-radius: 14px;
+  padding: 12px 16px 12px 14px;
+  color: #FFF4E8;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(200, 165, 107, 0.15);
+  max-width: 280px;
+  transform-origin: bottom left;
+  animation: ashwiniBubblePop 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.ashwini-greeting-bubble.dismissed {
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Tail pointer pointing down toward the trigger */
+.ashwini-greeting-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 26px;
+  width: 12px;
+  height: 12px;
+  background: rgba(26, 18, 16, 0.98);
+  border-right: 1px solid rgba(200, 165, 107, 0.45);
+  border-bottom: 1px solid rgba(200, 165, 107, 0.45);
+  transform: rotate(45deg);
+}
+
+.ashwini-bubble-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.ashwini-greeting-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #E0BF83;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ashwini-bubble-close {
+  background: transparent;
+  border: none;
+  color: #BFAFA2;
+  cursor: pointer;
+  padding: 0 2px;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+.ashwini-bubble-close:hover {
+  color: #FFF4E8;
+}
+
+.ashwini-greeting-langs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0;
+  flex-wrap: wrap;
+}
+
+.ashwini-lang-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #FFF4E8;
+  background: rgba(200, 165, 107, 0.18);
+  border: 1px solid rgba(200, 165, 107, 0.35);
+  padding: 2px 7px;
+  border-radius: 5px;
+  letter-spacing: 0.03em;
+}
+
+.ashwini-lang-sep {
+  color: rgba(200, 165, 107, 0.5);
+  font-size: 0.75rem;
+}
+
+.ashwini-greeting-desc {
+  font-size: 0.76rem;
+  color: #E4D2BE;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* Floating Trigger Button */
+.floating-ashwini-btn {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #1A1210 0%, #2A1C18 50%, #38241F 100%);
+  color: #FFF4E8;
+  border: 1.5px solid rgba(200, 165, 107, 0.6);
+  border-radius: 9999px;
+  padding: 8px 18px 8px 10px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(200, 165, 107, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: ashwiniFloatPulse 3.5s infinite ease-in-out;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  text-align: left;
+}
+
+.floating-ashwini-btn:hover {
+  background: linear-gradient(135deg, #241815 0%, #3A2620 50%, #462D26 100%);
+  border-color: #E0BF83;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(200, 165, 107, 0.35);
+}
+
+/* Avatar Ring & Subtle Styling */
+.ashwini-avatar-ring {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ashwini-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #C8A56B;
+  box-shadow: 0 0 12px rgba(200, 165, 107, 0.35);
+  display: block;
+}
+
+/* Subtle online indicator */
+.ashwini-status-dot {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 12px;
+  height: 12px;
+  background: #25D366;
+  border: 2px solid #1A1210;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(37, 211, 102, 0.8);
+}
+
+.ashwini-status-dot::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 1px solid rgba(37, 211, 102, 0.8);
+  animation: ashwiniDotRipple 2s infinite ease-out;
+}
+
+.ashwini-btn-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ashwini-btn-name {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #FFF4E8;
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
+.ashwini-btn-sub {
+  font-size: 0.74rem;
+  color: #C8A56B;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Microphone Icon Pill */
+.ashwini-mic-pill {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E0BF83 0%, #C8A56B 100%);
+  color: #1A1210;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(200, 165, 107, 0.4);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.floating-ashwini-btn:hover .ashwini-mic-pill {
+  transform: scale(1.1);
+}
+
+/* Animations */
+@keyframes ashwiniFloatPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes ashwiniBubblePop {
+  0% { opacity: 0; transform: translateY(12px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes ashwiniDotRipple {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   2. Ashwini Interactive Voice Modal & Backdrop
+   -------------------------------------------------------------------------- */
+.ashwini-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(14, 9, 8, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ashwini-modal-backdrop.active {
+  display: flex;
+  opacity: 1;
+}
+
+.ashwini-modal-container {
+  width: 100%;
+  max-width: 460px;
+  background: linear-gradient(180deg, #241815 0%, #1A1210 100%);
+  border: 1.5px solid rgba(200, 165, 107, 0.4);
+  border-radius: 24px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.75), 0 0 40px rgba(200, 165, 107, 0.15);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: ashwiniModalSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  color: #FFF4E8;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@keyframes ashwiniModalSlideUp {
+  0% { transform: translateY(24px) scale(0.96); opacity: 0; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* Modal Header */
+.ashwini-modal-header {
+  padding: 18px 22px;
+  background: rgba(36, 24, 21, 0.85);
+  border-bottom: 1px solid rgba(200, 165, 107, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ashwini-modal-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ashwini-modal-avatar-wrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+}
+
+.ashwini-modal-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #C8A56B;
+  box-shadow: 0 0 14px rgba(200, 165, 107, 0.4);
+}
+
+.ashwini-modal-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFF4E8;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.ashwini-modal-subtitle {
+  font-size: 0.78rem;
+  color: #C8A56B;
+  font-weight: 500;
+  margin-top: 2px;
+  display: block;
+}
+
+.ashwini-modal-close-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(200, 165, 107, 0.25);
+  color: #BFAFA2;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.ashwini-modal-close-btn:hover {
+  background: rgba(200, 165, 107, 0.2);
+  color: #FFF4E8;
+  transform: scale(1.05);
+}
+
+/* Modal Body */
+.ashwini-modal-body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Greeting Callout */
+.ashwini-greeting-card-inner {
+  background: radial-gradient(circle at top center, rgba(200, 165, 107, 0.12) 0%, rgba(36, 24, 21, 0.4) 100%);
+  border: 1px solid rgba(200, 165, 107, 0.25);
+  border-radius: 16px;
+  padding: 16px;
+  text-align: center;
+}
+
+.ashwini-welcome-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.22rem;
+  font-weight: 700;
+  color: #E0BF83;
+  margin-bottom: 6px;
+}
+
+.ashwini-modal-langs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 8px 0 10px;
+}
+
+.ashwini-modal-lang-chip {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #FFF4E8;
+  background: rgba(200, 165, 107, 0.2);
+  border: 1px solid rgba(200, 165, 107, 0.4);
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+.ashwini-welcome-desc {
+  font-size: 0.84rem;
+  color: #E4D2BE;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Dograh Voice Widget Container & Overrides
+   -------------------------------------------------------------------------- */
+.dograh-inline-container {
+  min-height: 180px;
+  padding: 16px 14px;
+  background: rgba(43, 30, 26, 0.55);
+  border: 1px solid rgba(200, 165, 107, 0.3);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Dograh Generated Elements Theming */
+.dograh-inline-status {
+  text-align: center;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  width: 100%;
+}
+
+.dograh-inline-status-icon {
+  width: 58px !important;
+  height: 58px !important;
+  margin: 0 auto 14px !important;
+  color: #C8A56B !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(200, 165, 107, 0.12);
+  border: 1.5px solid rgba(200, 165, 107, 0.35);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(200, 165, 107, 0.25);
+}
+
+.dograh-inline-status-icon svg {
+  width: 28px !important;
+  height: 28px !important;
+  stroke: #E0BF83 !important;
+}
+
+.dograh-inline-status-text {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #FFF4E8 !important;
+  margin: 0 0 6px !important;
+}
+
+.dograh-inline-status-subtext {
+  font-size: 0.86rem !important;
+  color: #E4D2BE !important;
+  margin: 0 0 16px !important;
+}
+
+.dograh-inline-btn {
+  padding: 12px 28px !important;
+  border-radius: 9999px !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  cursor: pointer !important;
+  transition: all 0.25s ease !important;
+  border: none !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+  font-family: 'Outfit', sans-serif !important;
+}
+
+.dograh-inline-btn-start {
+  background: linear-gradient(135deg, #E0BF83 0%, #C8A56B 50%, #A88345 100%) !important;
+  color: #1A1210 !important;
+  box-shadow: 0 8px 24px rgba(200, 165, 107, 0.35) !important;
+}
+
+.dograh-inline-btn-start:hover {
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 12px 30px rgba(200, 165, 107, 0.5) !important;
+  filter: brightness(1.08) !important;
+  color: #1A1210 !important;
+}
+
+.dograh-inline-btn-end {
+  background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%) !important;
+  color: #ffffff !important;
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.35) !important;
+}
+
+.dograh-inline-btn-end:hover {
+  transform: translateY(-2px) scale(1.03) !important;
+  box-shadow: 0 12px 30px rgba(239, 68, 68, 0.5) !important;
+  color: #ffffff !important;
+}
+
+/* Fallback Launch Button if Dograh is initializing */
+.ashwini-fallback-start-btn {
+  width: 100%;
+  padding: 13px 24px;
+  background: linear-gradient(135deg, #E0BF83 0%, #C8A56B 50%, #A88345 100%);
+  color: #1A1210;
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.96rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 8px 24px rgba(200, 165, 107, 0.35);
+  transition: all 0.25s ease;
+}
+
+.ashwini-fallback-start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(200, 165, 107, 0.5);
+  filter: brightness(1.08);
+}
+
+/* Suggested Topic Chips */
+.ashwini-topic-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ashwini-topic-label {
+  font-size: 0.75rem;
+  color: #BFAFA2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.ashwini-topic-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.ashwini-topic-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(200, 165, 107, 0.25);
+  color: #E4D2BE;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ashwini-topic-pill:hover {
+  background: rgba(200, 165, 107, 0.18);
+  border-color: #E0BF83;
+  color: #FFF4E8;
+  transform: translateY(-1px);
+}
+
+/* Modal Footer */
+.ashwini-modal-footer {
+  padding: 14px 22px;
+  background: rgba(26, 18, 16, 0.95);
+  border-top: 1px solid rgba(200, 165, 107, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #BFAFA2;
+}
+
+.ashwini-modal-footer a {
+  color: #25D366;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ashwini-modal-footer a:hover {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   4. Safe Pinning for Dograh Floating Widget (if rendered dynamically)
+   -------------------------------------------------------------------------- */
+#dograh-widget-root,
+.dograh-widget-container {
+  left: 26px !important;
+  right: auto !important;
+  bottom: 26px !important;
+  z-index: 998 !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. Responsive Behavior
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .floating-ashwini-wrap {
+    bottom: 20px;
+    left: 16px;
+  }
+
+  .ashwini-greeting-bubble {
+    max-width: 250px;
+    padding: 10px 14px;
+  }
+
+  .ashwini-btn-content {
+    display: none; /* Keep avatar + mic compact so both WhatsApp and Ashwini fit */
+  }
+
+  .floating-ashwini-btn {
+    padding: 6px 10px 6px 6px;
+    gap: 8px;
+  }
+
+  .ashwini-avatar-ring {
+    width: 38px;
+    height: 38px;
+  }
+
+  .ashwini-mic-pill {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ashwini-modal-container {
+    max-width: 100%;
+    border-radius: 20px 20px 0 0;
+    margin-top: auto;
+  }
+
+  .ashwini-modal-backdrop {
+    padding: 0;
+    align-items: flex-end;
+  }
+}
