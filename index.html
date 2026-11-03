@@ -1424,7 +1424,6 @@
   <script src="js/config.js?v=3.4"></script>
   <script src="js/app.js?v=3.4"></script>
 
-
   <!-- ============ ASHWINI AI VOICE ASSISTANT LAUNCHER (BOTTOM-LEFT, OPPOSITE WHATSAPP) ============ -->
   <div class="ashwini-launcher-wrap" id="ashwiniLauncherWrap">
     <button class="ashwini-pill-btn" id="ashwiniPillBtn" onclick="toggleAshwiniVoiceModal(true)" aria-label="Talk to Ashwini AI Voice Assistant">
@@ -1447,118 +1446,69 @@
     </button>
   </div>
 
-  <!-- ============ ASHWINI AI VOICE CALL MODAL (SQUARE, COMPACT, THEME MATCHED, ZERO EMOJIS) ============ -->
-  <div class="ashwini-call-modal" id="ashwiniVoiceModal" role="dialog" aria-modal="true" aria-labelledby="ashwiniModalTitle" hidden>
-    <!-- Modal Header -->
-    <div class="ashwini-modal-header">
-      <div class="ashwini-header-left">
-        <div class="ashwini-avatar-wrap">
-          <img src="assets/images/agent-avatar.jpg" alt="Ashwini" class="ashwini-header-avatar">
-          <span class="ashwini-live-pulse-dot" id="ashwiniLiveDot"></span>
-        </div>
-        <div class="ashwini-header-titles">
-          <h3 id="ashwiniModalTitle" class="ashwini-header-name">Ashwini</h3>
-          <span class="ashwini-call-status" id="ashwiniCallStatusText">AI Voice Assistant</span>
+  <!-- ============ ASHWINI AI VOICE CALL MODAL (CLEAN 275px x 275px SQUARE BOX) ============ -->
+  <div class="ashwini-square-modal" id="ashwiniVoiceModal" role="dialog" aria-modal="true" aria-labelledby="ashwiniModalTitle" hidden>
+    <!-- Header -->
+    <div class="ashwini-sq-header">
+      <div class="ashwini-sq-brand">
+        <img src="assets/images/agent-avatar.jpg" alt="Ashwini" class="ashwini-sq-avatar">
+        <div>
+          <div class="ashwini-sq-name" id="ashwiniModalTitle">Ashwini</div>
+          <div class="ashwini-sq-status" id="ashwiniCallStatusText">AI Voice Assistant</div>
         </div>
       </div>
-      <button class="ashwini-close-btn" onclick="toggleAshwiniVoiceModal(false)" aria-label="Minimize voice assistant">&times;</button>
+      <button class="ashwini-sq-close" onclick="toggleAshwiniVoiceModal(false)" aria-label="Minimize voice assistant">&times;</button>
     </div>
 
-    <!-- Multilingual Capability Banner (Clean Vector SVG Globe, Zero Emoji) -->
-    <div class="ashwini-lang-banner">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ashwini-lang-svg" aria-hidden="true">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="2" y1="12" x2="22" y2="12"/>
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-      </svg>
-      <span>You can talk with Ashwini in <strong>Hindi, English &amp; Marathi</strong></span>
-    </div>
-
-    <!-- Call Visualizer & Content Area -->
-    <div class="ashwini-modal-body">
-      <!-- Idle State Screen -->
-      <div class="ashwini-screen ashwini-screen-idle" id="ashwiniScreenIdle">
-        <div class="ashwini-welcome-bubble">
-          <p><strong>Namaste!</strong> I am Ashwini, your salon receptionist at Amruta Makeover.</p>
-          <p class="ashwini-bubble-sub">Ask me about bridal packages, hair styling, skin services, or book your appointment in Hindi, English, or Marathi.</p>
-        </div>
-
-        <div class="ashwini-topic-chips">
-          <button type="button" class="ashwini-chip" onclick="startAshwiniVoiceCall()">Bridal Makeup</button>
-          <button type="button" class="ashwini-chip" onclick="startAshwiniVoiceCall()">Hair &amp; Draping</button>
-          <button type="button" class="ashwini-chip" onclick="startAshwiniVoiceCall()">Skin &amp; Facials</button>
-          <button type="button" class="ashwini-chip" onclick="startAshwiniVoiceCall()">Book Appointment</button>
-        </div>
-      </div>
-
-      <!-- Active / Connecting Call State Screen -->
-      <div class="ashwini-screen ashwini-screen-active" id="ashwiniScreenActive" hidden>
-        <div class="ashwini-visualizer-wrap">
-          <div class="ashwini-soundwaves" id="ashwiniSoundwaves">
-            <span class="wave-bar"></span>
-            <span class="wave-bar"></span>
-            <span class="wave-bar"></span>
-            <span class="wave-bar"></span>
-            <span class="wave-bar"></span>
-            <span class="wave-bar"></span>
-            <span class="wave-bar"></span>
-          </div>
-          <p class="ashwini-call-timer" id="ashwiniCallTimer">00:00</p>
-          <p class="ashwini-speaking-hint" id="ashwiniSpeakingHint">Ashwini is listening... Speak anytime</p>
-        </div>
-
-        <div class="ashwini-transcripts" id="ashwiniTranscripts">
-          <div class="ashwini-bubble ashwini-bubble-agent">
-            <p>Namaste! Welcome to Amruta Makeover. How can I assist you with your booking today?</p>
-          </div>
-          <div class="ashwini-quick-replies">
-            <button type="button" class="ashwini-quick-reply-pill" onclick="sendAshwiniSpeechPrompt('What are your bridal packages and rates?')">Bridal Packages</button>
-            <button type="button" class="ashwini-quick-reply-pill" onclick="sendAshwiniSpeechPrompt('I want to book an appointment with Amruta.')">Book Appointment</button>
-          </div>
-        </div>
+    <!-- Idle Screen inside Square Box -->
+    <div class="ashwini-sq-idle" id="ashwiniScreenIdle">
+      <div class="ashwini-sq-lang">Hindi &bull; English &bull; मराठी</div>
+      <div class="ashwini-sq-desc">Speak in Hindi, English, or Marathi for bridal packages, hair &amp; makeup bookings.</div>
+      <button type="button" class="ashwini-sq-start-btn" onclick="startAshwiniVoiceCall()" id="btnAshwiniStartCall">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-2.2 2.2a15.053 15.053 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/>
+        </svg>
+        <span>Start Voice Call</span>
+      </button>
+      <div class="ashwini-sq-chips">
+        <button type="button" class="ashwini-sq-chip" onclick="startAshwiniVoiceCall()">Bridal Packages</button>
+        <button type="button" class="ashwini-sq-chip" onclick="startAshwiniVoiceCall()">Book Slot</button>
       </div>
     </div>
 
-    <!-- Modal Footer Controls -->
-    <div class="ashwini-modal-footer">
-      <!-- Idle Call Button -->
-      <div class="ashwini-footer-idle" id="ashwiniFooterIdle">
-        <button class="btn-ashwini-start-call" onclick="startAshwiniVoiceCall()" id="btnAshwiniStartCall">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-            <line x1="12" y1="19" x2="12" y2="23"/>
-            <line x1="8" y1="23" x2="16" y2="23"/>
-          </svg>
-          <span>Start Voice Call with Ashwini</span>
-        </button>
+    <!-- Active Call Screen inside Square Box (Transitions in place!) -->
+    <div class="ashwini-sq-active" id="ashwiniScreenActive" style="display: none;">
+      <div class="ashwini-sq-active-center">
+        <div class="ashwini-sq-timer" id="ashwiniCallTimer">00:00</div>
+        <div class="ashwini-sq-soundwaves">
+          <span class="sq-wave-bar"></span>
+          <span class="sq-wave-bar"></span>
+          <span class="sq-wave-bar"></span>
+          <span class="sq-wave-bar"></span>
+          <span class="sq-wave-bar"></span>
+        </div>
+        <div class="ashwini-sq-listening">Listening... Speak anytime</div>
       </div>
-
-      <!-- Active Call Controls -->
-      <div class="ashwini-footer-active" id="ashwiniFooterActive" hidden>
-        <button class="btn-ashwini-end-call" onclick="endAshwiniVoiceCall()" id="btnAshwiniEndCall">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
-            <rect x="5" y="5" width="14" height="14" rx="2"/>
-          </svg>
+      <div class="ashwini-sq-controls">
+        <button type="button" class="ashwini-sq-end-btn" onclick="endAshwiniVoiceCall()" id="btnAshwiniEndCall">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 9c-1.6 0-3.15.25-4.6.72v3.1c0 .39-.23.74-.56.9-.98.49-1.87 1.12-2.66 1.85-.18.18-.43.28-.7.28-.28 0-.53-.11-.71-.29L.29 13.08a.996.996 0 0 1 0-1.41C3.42 8.47 7.45 6.5 12 6.5s8.58 1.97 11.71 5.17c.39.39.39 1.02 0 1.41l-2.48 2.48c-.18.18-.43.29-.71.29-.27 0-.52-.11-.7-.28-.79-.74-1.69-1.36-2.67-1.85-.33-.16-.56-.5-.56-.9v-3.1C15.15 9.25 13.6 9 12 9z"/></svg>
           <span>End Call</span>
         </button>
-        <button class="btn-ashwini-mute-toggle" onclick="toggleAshwiniMicMute()" id="btnAshwiniMute" aria-label="Mute microphone" title="Mute microphone">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="ashwiniIconMic" aria-hidden="true">
-            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-            <line x1="12" y1="19" x2="12" y2="23"/>
-            <line x1="8" y1="23" x2="16" y2="23"/>
+        <button type="button" class="ashwini-sq-mute-btn" onclick="toggleAshwiniMicMute()" id="btnAshwiniMute" aria-label="Mute microphone">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+            <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
           </svg>
         </button>
       </div>
     </div>
 
-    <!-- Hidden Dograh container to anchor Dograh WebRTC runtime -->
-    <div id="dograh-inline-container" style="width: 1px; height: 1px; opacity: 0.01; overflow: hidden;"></div>
+    <!-- Active Dograh WebRTC runtime container (Unmuted) -->
+    <div id="dograh-inline-container" style="position: absolute; width: 1px; height: 1px; opacity: 0.01; overflow: hidden; pointer-events: none;"></div>
   </div>
 
   <style>
-    /* Prevent duplicate floating button from Dograh script */
+    /* Ensure Dograh native floating launcher is hidden */
     .dograh-widget-container {
       display: none !important;
     }
@@ -1568,6 +1518,13 @@
     var ashwiniCallTimerInterval = null;
     var ashwiniCallSeconds = 0;
     var isAshwiniMuted = false;
+
+    // Master WebRTC Output Audio Element (Unlocked on user click)
+    var masterAudioEl = document.createElement('audio');
+    masterAudioEl.id = 'ashwiniMasterAudio';
+    masterAudioEl.autoplay = true;
+    masterAudioEl.playsInline = true;
+    document.body.appendChild(masterAudioEl);
 
     function toggleAshwiniVoiceModal(show) {
       var modal = document.getElementById('ashwiniVoiceModal');
@@ -1591,12 +1548,12 @@
     }
 
     function startAshwiniVoiceCall() {
+      // 1. Instantly unlock audio in browser on user click gesture
+      masterAudioEl.play().catch(function(){});
+
       toggleAshwiniVoiceModal(true);
-      document.getElementById('ashwiniScreenIdle').hidden = true;
-      document.getElementById('ashwiniScreenActive').hidden = false;
-      document.getElementById('ashwiniFooterIdle').hidden = true;
-      document.getElementById('ashwiniFooterActive').hidden = false;
-      document.getElementById('ashwiniLiveDot').classList.add('pulse');
+      document.getElementById('ashwiniScreenIdle').style.display = 'none';
+      document.getElementById('ashwiniScreenActive').style.display = 'flex';
       document.getElementById('ashwiniCallStatusText').textContent = 'Connecting...';
 
       // Reset & start timer
@@ -1608,7 +1565,28 @@
         updateAshwiniTimerDisplay();
       }, 1000);
 
-      // Trigger WebRTC call via Dograh
+      // 2. Direct WebRTC ontrack hook to guarantee audio plays to speakers
+      var hookTimer = setInterval(function() {
+        if (window.DograhWidget && typeof window.DograhWidget.getState === 'function') {
+          var state = window.DograhWidget.getState();
+          if (state && state.pc) {
+            clearInterval(hookTimer);
+            var origOnTrack = state.pc.ontrack;
+            state.pc.ontrack = function(event) {
+              if (origOnTrack) origOnTrack(event);
+              if (event.track && event.track.kind === 'audio') {
+                masterAudioEl.srcObject = event.streams[0];
+                masterAudioEl.muted = false;
+                masterAudioEl.volume = 1.0;
+                masterAudioEl.play().catch(function(e){ console.warn('Audio play:', e); });
+              }
+            };
+          }
+        }
+      }, 100);
+      setTimeout(function() { clearInterval(hookTimer); }, 10000);
+
+      // 3. Trigger Dograh WebRTC call
       if (window.DograhWidget && typeof window.DograhWidget.start === 'function') {
         window.DograhWidget.start().then(function() {
           document.getElementById('ashwiniCallStatusText').textContent = 'Call in progress';
@@ -1623,7 +1601,7 @@
               document.getElementById('ashwiniCallStatusText').textContent = 'Call in progress';
             });
           }
-        }, 250);
+        }, 200);
         setTimeout(function() { clearInterval(pollTimer); }, 6000);
       }
     }
@@ -1635,11 +1613,12 @@
       } else if (window.DograhWidget && typeof window.DograhWidget.end === 'function') {
         try { window.DograhWidget.end(); } catch(e){}
       }
-      document.getElementById('ashwiniScreenIdle').hidden = false;
-      document.getElementById('ashwiniScreenActive').hidden = true;
-      document.getElementById('ashwiniFooterIdle').hidden = false;
-      document.getElementById('ashwiniFooterActive').hidden = true;
-      document.getElementById('ashwiniLiveDot').classList.remove('pulse');
+      if (masterAudioEl) {
+        masterAudioEl.pause();
+        masterAudioEl.srcObject = null;
+      }
+      document.getElementById('ashwiniScreenIdle').style.display = 'flex';
+      document.getElementById('ashwiniScreenActive').style.display = 'none';
       document.getElementById('ashwiniCallStatusText').textContent = 'AI Voice Assistant';
     }
 
@@ -1664,33 +1643,16 @@
       }
     }
 
-    function sendAshwiniSpeechPrompt(text) {
-      var transcripts = document.getElementById('ashwiniTranscripts');
-      if (transcripts) {
-        var userBubble = document.createElement('div');
-        userBubble.className = 'ashwini-bubble ashwini-bubble-user';
-        userBubble.innerHTML = '<p>' + text + '</p>';
-        transcripts.appendChild(userBubble);
-      }
-      var idleScreen = document.getElementById('ashwiniScreenIdle');
-      if (!idleScreen.hidden) {
-        startAshwiniVoiceCall();
-      }
-    }
-
-    // Connect Dograh callbacks once ready
-        // Audio watchdog: Guarantees Dograh WebRTC audio is never muted or suspended by browser
+    // Audio watchdog
     setInterval(function() {
-      var allAudios = document.querySelectorAll('audio');
-      allAudios.forEach(function(aud) {
+      var audios = document.querySelectorAll('audio');
+      audios.forEach(function(aud) {
         aud.muted = false;
         aud.volume = 1.0;
-        if (aud.paused) {
-          aud.play().catch(function(){});
-        }
       });
     }, 500);
 
+    // Call state callbacks
     window.addEventListener('load', function() {
       var checkDograh = setInterval(function() {
         if (window.DograhWidget) {
@@ -1698,7 +1660,6 @@
           if (typeof window.DograhWidget.onCallConnected === 'function') {
             window.DograhWidget.onCallConnected(function() {
               document.getElementById('ashwiniCallStatusText').textContent = 'Call in progress';
-              document.getElementById('ashwiniLiveDot').classList.add('pulse');
             });
           }
           if (typeof window.DograhWidget.onCallDisconnected === 'function') {
