@@ -1554,7 +1554,7 @@
     </div>
 
     <!-- Hidden Dograh container to anchor Dograh WebRTC runtime -->
-    <div id="dograh-inline-container" style="display:none !important;"></div>
+    <div id="dograh-inline-container" style="width: 1px; height: 1px; opacity: 0.01; overflow: hidden;"></div>
   </div>
 
   <style>
@@ -1679,6 +1679,18 @@
     }
 
     // Connect Dograh callbacks once ready
+        // Audio watchdog: Guarantees Dograh WebRTC audio is never muted or suspended by browser
+    setInterval(function() {
+      var allAudios = document.querySelectorAll('audio');
+      allAudios.forEach(function(aud) {
+        aud.muted = false;
+        aud.volume = 1.0;
+        if (aud.paused) {
+          aud.play().catch(function(){});
+        }
+      });
+    }, 500);
+
     window.addEventListener('load', function() {
       var checkDograh = setInterval(function() {
         if (window.DograhWidget) {
